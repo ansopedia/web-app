@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2021",
-    "rootDir": "./src",
+    "rootDir": "./",
     "baseUrl": "./src",
     "sourceMap": true,
     "outDir": "./build",
