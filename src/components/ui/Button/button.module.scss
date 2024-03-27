@@ -1,0 +1,54 @@
+$white: #fff;
+$primary-color: #f37335;
+$font-size: 16px;
+
+@mixin button-styles {
+  font-size: $font-size;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  background-color: $white;
+  border: none;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.contained {
+  @include button-styles;
+
+  background-image: linear-gradient(to left, #ee390f 0%, #f9b700 51%, #ee390f 100%);
+  background-size: 200% auto;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  box-shadow: 0 12px 20px 0 #ff7e5f26;
+  color: $white;
+  padding: 8px 40px;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    background-position: right center;
+    box-shadow: 0 10px 30px 0 #c1220a33;
+  }
+}
+
+.outlined {
+  @include button-styles;
+
+  border-radius: 20px;
+  border: 2px solid #f37435b3;
+  padding: 8px 40px;
+  color: $primary-color;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    border: 2px solid $primary-color;
+  }
+}
+
+.text,
+.icon {
+  @include button-styles;
+
+  color: $primary-color;
+}
