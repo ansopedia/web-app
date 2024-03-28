@@ -1,15 +1,15 @@
-$white: #fff;
-$primary-color: #f37335;
-$font-size: 16px;
+@use '../../../styles/mixins' as m;
+@use '../../../styles/constants' as *;
 
 @mixin button-styles {
   font-size: $font-size;
   font-style: normal;
-  font-weight: 700;
+  font-weight: $font-weight-regular;
   line-height: normal;
   text-align: center;
-  background-color: $white;
+  background-color: $color-white;
   border: none;
+  outline: none;
   text-transform: capitalize;
   cursor: pointer;
 }
@@ -17,18 +17,20 @@ $font-size: 16px;
 .contained {
   @include button-styles;
 
-  background-image: linear-gradient(to left, #ee390f 0%, #f9b700 51%, #ee390f 100%);
+  background-image: linear-gradient(to left, $color-error 0%, $color-secondary 51%, #ee390f 100%);
   background-size: 200% auto;
   border-radius: 20px;
-  border: 1px solid transparent;
-  box-shadow: 0 12px 20px 0 #ff7e5f26;
-  color: $white;
+  color: $color-white;
   padding: 8px 40px;
   transition: all 0.4s ease-in-out;
 
   &:hover {
     background-position: right center;
-    box-shadow: 0 10px 30px 0 #c1220a33;
+    box-shadow: 0 10px 30px 0 $color-danger-dark-transparent;
+  }
+
+  &:focus {
+    @include m.box-shadow;
   }
 }
 
@@ -36,19 +38,22 @@ $font-size: 16px;
   @include button-styles;
 
   border-radius: 20px;
-  border: 2px solid #f37435b3;
+  box-shadow: 0 0 0 2px $color-primary-light;
   padding: 8px 40px;
-  color: $primary-color;
+  color: $color-primary;
   transition: all 0.4s ease-in-out;
 
   &:hover {
-    border: 2px solid $primary-color;
+    @include m.box-shadow;
+  }
+
+  &:focus {
+    @include m.box-shadow;
   }
 }
 
-.text,
-.icon {
+.text {
   @include button-styles;
 
-  color: $primary-color;
+  color: $color-primary;
 }

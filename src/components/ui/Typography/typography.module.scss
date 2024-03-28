@@ -1,0 +1,45 @@
+@use 'sass:map';
+@use '../../../styles/constants' as *;
+
+.primary {
+  color: $color-primary;
+}
+
+.secondary {
+  color: $color-secondary;
+}
+
+.default {
+  color: $color-gray;
+}
+
+.error {
+  color: $color-error;
+}
+
+$font-sizes: (
+  '1': $font-size-h1,
+  '2': $font-size-h2,
+  '3': $font-size-h3,
+  '4': $font-size-h4,
+  '5': $font-size-h5,
+  '6': $font-size-h6,
+);
+
+@for $i from 1 through 6 {
+  .heading#{$i} {
+    font-size: map.get($font-sizes, '#{$i}');
+  }
+}
+
+.paragraph {
+  font-size: $font-size-body1;
+  font-weight: $font-weight-regular;
+  line-height: 1.6;
+}
+
+.span {
+  font-size: $font-size-body2;
+  font-weight: $font-weight-regular;
+  line-height: 1.4;
+}
