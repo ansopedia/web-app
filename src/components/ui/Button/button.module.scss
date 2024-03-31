@@ -12,6 +12,7 @@
   outline: none;
   text-transform: capitalize;
   cursor: pointer;
+  padding: $padding-8 $padding-40;
 }
 
 .contained {
@@ -21,7 +22,6 @@
   background-size: 200% auto;
   border-radius: 20px;
   color: $color-white;
-  padding: 8px 40px;
   transition: all 0.4s ease-in-out;
 
   &:hover {
@@ -39,14 +39,10 @@
 
   border-radius: 20px;
   box-shadow: 0 0 0 2px $color-primary-light;
-  padding: 8px 40px;
   color: $color-primary;
   transition: all 0.4s ease-in-out;
 
-  &:hover {
-    @include m.box-shadow;
-  }
-
+  &:hover,
   &:focus {
     @include m.box-shadow;
   }
@@ -56,4 +52,10 @@
   @include button-styles;
 
   color: $color-primary;
+
+  &:hover,
+  &:focus {
+    border-radius: 8px;
+    background-color: $color-gray-light;
+  }
 }

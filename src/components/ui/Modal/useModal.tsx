@@ -1,15 +1,19 @@
-import { useRef } from 'react';
-import { ModalHandle } from './Modal';
+import { useState } from 'react';
 
 export const useModal = () => {
-  const modalRef = useRef<ModalHandle>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
-    modalRef.current?.open();
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
   };
 
   return {
-    modalRef,
+    isOpen,
     openModal,
+    closeModal,
   };
 };

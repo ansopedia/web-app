@@ -1,46 +1,54 @@
 'use client';
 
-import { FC, forwardRef, useImperativeHandle, useRef } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import style from './modal.module.scss';
+import Button from '../Button/Button';
 
-interface ModalProps extends React.ComponentPropsWithoutRef<'dialog'> {
+interface ModalProps extends React.ComponentPropsWithoutRef<'div'> {
   children: React.ReactNode;
-  ref?: React.LegacyRef<ModalHandle>;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export type ModalHandle = {
-  isOpen: boolean;
+  isOpen: () => boolean;
   open: () => void;
   close: () => void;
   toggle: () => void;
 };
 
-const Modal: FC<ModalProps> = forwardRef<ModalHandle, ModalProps>(function Modal({ children }: ModalProps, ref) {
-  const modalRef = useRef<HTMLDialogElement>(null);
+const Modal: FC<ModalProps> = ({ children, isOpen, onClose }: ModalProps) => {
+  const [modalRoot, setModalRoot] = useState<HTMLElement>();
 
-  useImperativeHandle(ref, () => {
-    return {
-      open: () => modalRef.current?.showModal(),
-      close: () => modalRef.current?.close(),
-      toggle: () => {
-        modalRef.current?.open ? modalRef.current?.close() : modalRef.current?.showModal();
-      },
-      isOpen: modalRef.current?.open ?? false,
-    };
-  });
+  useEffect(() => {
+    const root = document.getElementById('modal-root') || document.body;
+    setModalRoot(root);
+  }, []);
 
-  const modalRoot = document.getElementById('modal-root') || document.body;
+  if (!modalRoot) {
+    return null;
+  }
 
-  return createPortal(
-    <dialog ref={modalRef} className={style.modal}>
-      {children}
-      <form method="dialog">
-        <button>OK</button>
-      </form>
-    </dialog>,
-    modalRoot,
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (event.key === 'Escape') {
+      onClose();
+    }
+  };
+
+  const Modal = (
+    <div className={style['modal-wrapper']}>
+      <div className={style['modal-backdrop']} />
+      <div className={style.modal}>
+        {children}
+        <Button variant="text" onClick={onClose} className={style['modal-close']} autoFocus onKeyDown={handleKeyDown}>
+          X
+        </Button>
+      </div>
+    </div>
   );
-});
+
+  return isOpen ? createPortal(Modal, modalRoot) : null;
+};
 
 export default Modal;
