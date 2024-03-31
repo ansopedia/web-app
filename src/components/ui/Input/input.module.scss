@@ -1,0 +1,26 @@
+@use '../../../styles/constants' as *;
+
+.input-group {
+  border: 1px solid $color-gray;
+  border-radius: 12px;
+  padding: $padding-12 $padding-16;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+
+  &:focus-within {
+    border-color: $color-primary;
+  }
+}
+
+.input {
+  width: 100%;
+  outline: none;
+  border: none;
+  color: $color-black;
+  font-size: $font-size-16;
+
+  ::placeholder {
+    color: $color-gray-light;
+  }
+}

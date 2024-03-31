@@ -2,7 +2,7 @@
 @use '../../../styles/constants' as *;
 
 @mixin button-styles {
-  font-size: $font-size;
+  font-size: $font-size-16;
   font-style: normal;
   font-weight: $font-weight-regular;
   line-height: normal;
