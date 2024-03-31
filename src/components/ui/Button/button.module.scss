@@ -1,0 +1,61 @@
+@use '../../../styles/mixins' as m;
+@use '../../../styles/constants' as *;
+
+@mixin button-styles {
+  font-size: $font-size-16;
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  line-height: normal;
+  text-align: center;
+  background-color: $color-white;
+  border: none;
+  outline: none;
+  text-transform: capitalize;
+  cursor: pointer;
+  padding: $padding-8 $padding-40;
+}
+
+.contained {
+  @include button-styles;
+
+  background-image: linear-gradient(to left, $color-error 0%, $color-secondary 51%, #ee390f 100%);
+  background-size: 200% auto;
+  border-radius: 20px;
+  color: $color-white;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    background-position: right center;
+    box-shadow: 0 10px 30px 0 $color-danger-dark-transparent;
+  }
+
+  &:focus {
+    @include m.box-shadow;
+  }
+}
+
+.outlined {
+  @include button-styles;
+
+  border-radius: 20px;
+  box-shadow: 0 0 0 2px $color-primary-light;
+  color: $color-primary;
+  transition: all 0.4s ease-in-out;
+
+  &:hover,
+  &:focus {
+    @include m.box-shadow;
+  }
+}
+
+.text {
+  @include button-styles;
+
+  color: $color-primary;
+
+  &:hover,
+  &:focus {
+    border-radius: 8px;
+    background-color: $color-gray-light;
+  }
+}

@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "build": "next build && eslint --max-warnings=0 .",
+    "build:local": "pnpm prettier:fix && pnpm lint:style && next build",
     "dev": "next dev && eslint --max-warnings=0 .",
     "lint:staged": "lint-staged",
     "lint": "next lint",
+    "lint:style": "stylelint --allow-empty-input \"**/*.{css,scss}\"",
+    "lint:style:fix": "stylelint --fix \"**/*.{css,scss}\"",
     "prepare": "husky",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
@@ -30,6 +33,8 @@
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "sass": "^1.72.0",
+    "stylelint": "^16.3.1",
+    "stylelint-config-standard-scss": "^13.0.0",
     "typescript": "^5"
   },
   "husky": {
