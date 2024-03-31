@@ -20,11 +20,15 @@
   .hero-body {
     height: 100%;
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     padding: $padding-60 $padding-0;
     gap: 32px;
     margin-top: 100px;
+
+    @include m.tablet {
+      flex-direction: row;
+    }
   }
 
   .hero-content {
@@ -51,8 +55,17 @@
     align-items: center;
 
     img {
-      height: 540px;
+      height: 480px;
       position: static;
+    }
+
+    @include m.tablet {
+      order: 2;
+
+      img {
+        height: 540px;
+        position: static;
+      }
     }
   }
 }

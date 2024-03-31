@@ -32,7 +32,7 @@ const NavBar = () => {
           <Image src={logo} alt="ansopedia" className={style.logo} width={60} height={60} priority />
           <Typography variant="h3">Ansopedia</Typography>
         </div>
-        <div className={`${style['menu-tablet']} ${isMobileMenuOpen ? style['menu-mobile'] : ''}`}>
+        <div className={`${style['menubar']} ${style['menu-tablet']} ${isMobileMenuOpen ? style['menu-mobile'] : ''}`}>
           <div className={style['menu']}>
             {navItems.map(({ href, label }) => (
               <Link
