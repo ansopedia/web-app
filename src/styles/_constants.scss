@@ -11,29 +11,34 @@ $color-link-light: #dbeafe; /* Sky Blue */
 $color-link-dark: #2979bd; /* Royal Blue */
 $color-dark: #262626;
 $color-transparent: transparent;
+$color-backdrop: #00000080;
 
-// Font styles
-$font-family: 'Poppins', sans-serif;
-$font-size-body1: 1.6rem;
-$font-size-body2: 1.4rem;
-$font-size-h1: 4.8rem;
-$font-size-h2: 3.6rem;
-$font-size-h3: 2.4rem;
-$font-size-h4: 2rem;
-$font-size-h5: 1.8rem;
-$font-size-h6: 1.6rem;
+// Font sizes
 $font-size-12: 1.2rem;
 $font-size-16: 1.6rem;
 $font-size-18: 1.8rem;
-$font-weight-black: 900;
-$font-weight-bold: 700;
-$font-weight-extra-bold: 800;
-$font-weight-light: 300;
-$font-weight-medium: 500;
-$font-weight-regular: 400;
-$font-weight-semi-bold: 600;
+$font-size-20: 2rem;
+$font-size-24: 2.4rem;
+$font-size-28: 2.8rem;
+$font-size-32: 3.2rem;
+$font-size-36: 3.6rem;
+$font-size-40: 4rem;
+$font-size-44: 4.4rem;
+$font-size-48: 4.8rem;
+
+// Font weights
+$font-weight-100: 300;
+$font-weight-200: 300;
+$font-weight-300: 300;
+$font-weight-400: 400;
+$font-weight-500: 500;
+$font-weight-600: 600;
+$font-weight-700: 700;
+$font-weight-800: 800;
+$font-weight-900: 900;
 
 // Spacing
+$spacing-0: 0;
 $spacing-4: 0.4rem;
 $spacing-8: 0.8rem;
 $spacing-12: 1.2rem;
@@ -48,6 +53,7 @@ $spacing-44: 4.4rem;
 $spacing-48: 4.8rem;
 
 // Padding
+$padding-0: 0;
 $padding-4: 0.4rem;
 $padding-8: 0.8rem;
 $padding-12: 1.2rem;
@@ -60,3 +66,6 @@ $padding-36: 3.6rem;
 $padding-40: 4rem;
 $padding-44: 4.4rem;
 $padding-48: 4.8rem;
+$padding-52: 5.2rem;
+$padding-56: 5.6rem;
+$padding-60: 6rem;

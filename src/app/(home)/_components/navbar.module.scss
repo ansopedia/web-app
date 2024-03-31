@@ -4,10 +4,12 @@
 .sticky-nav {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
 }
 
 .nav {
+  height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,12 +19,16 @@
   margin: auto;
 
   .logo {
-    font-size: 24px;
-    font-weight: 700;
+    font-size: $font-size-24;
+    font-weight: $font-weight-700;
     display: flex;
     align-items: center;
     gap: 8px;
     z-index: 999;
+
+    h3 {
+      z-index: 999;
+    }
   }
 
   .menu-tablet {
@@ -55,8 +61,8 @@
         justify-content: center;
 
         &__item {
-          font-size: 16px;
-          font-weight: 500;
+          font-size: $font-size-16;
+          font-weight: $font-weight-500;
           color: $color-text-primary;
 
           &:hover,
@@ -82,6 +88,7 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 24px;
       background-color: $color-transparent;
 
@@ -93,8 +100,8 @@
         justify-content: center;
 
         &__item {
-          font-size: 16px;
-          font-weight: 500;
+          font-size: $font-size-16;
+          font-weight: $font-weight-500;
           color: $color-text-primary;
 
           &:hover,

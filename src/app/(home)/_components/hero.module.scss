@@ -2,9 +2,6 @@
 @use '../../../styles/mixins' as m;
 
 .hero {
-  position: relative;
-  height: 768px;
-
   &-background {
     background-image: url('../../../assets//Hero_background.svg');
     background-size: cover;
@@ -14,5 +11,48 @@
     width: 960px;
     height: 424px;
     z-index: -1;
+
+    @include m.tablet {
+      width: 1080px;
+    }
+  }
+
+  .hero-body {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: $padding-60 $padding-0;
+    gap: 32px;
+    margin-top: 100px;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+
+    .hero-title {
+      span {
+        color: $color-primary;
+      }
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 24px;
+    }
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 540px;
+      position: static;
+    }
   }
 }
