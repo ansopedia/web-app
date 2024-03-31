@@ -1,0 +1,131 @@
+@use '../../../styles/constants' as *;
+@use '../../../styles/mixins' as m;
+
+.hero {
+  position: relative;
+  height: 768px;
+
+  &-background {
+    background-image: url('../../../assets//Hero_background.svg');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 960px;
+    height: 424px;
+    z-index: -1;
+  }
+
+  .sticky-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    max-width: 1080px;
+    width: 90%;
+    margin: auto;
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 999;
+
+      img {
+        width: 60px;
+      }
+    }
+
+    .menu-tablet {
+      display: none;
+    }
+
+    .menu-cta {
+      z-index: 999;
+    }
+
+    .menu-mobile {
+      @include m.mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        background-color: $color-white;
+
+        .menu {
+          flex-direction: column;
+          display: flex;
+          gap: 24px;
+          align-items: center;
+          justify-content: center;
+
+          &__item {
+            font-size: 16px;
+            font-weight: 500;
+            color: $color-text-primary;
+
+            &:hover,
+            &:active,
+            &:focus,
+            &--active {
+              color: $color-primary;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+
+    @include m.tablet {
+      .menu-mobile,
+      .menu-cta {
+        display: none;
+      }
+
+      .menu-tablet {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        background-color: $color-transparent;
+
+        .menu {
+          display: flex;
+          gap: 24px;
+          align-items: center;
+          flex-grow: 1;
+          justify-content: center;
+
+          &__item {
+            font-size: 16px;
+            font-weight: 500;
+            color: $color-text-primary;
+
+            &:hover,
+            &:active,
+            &:focus,
+            &--active {
+              color: $color-primary;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

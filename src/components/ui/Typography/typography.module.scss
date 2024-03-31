@@ -6,15 +6,15 @@
 }
 
 .secondary {
-  color: $color-secondary;
+  color: $color-text-primary-light;
 }
 
 .default {
-  color: $color-gray;
+  color: $color-text-primary;
 }
 
 .error {
-  color: $color-error;
+  color: $color-primary-dark;
 }
 
 $font-sizes: (
