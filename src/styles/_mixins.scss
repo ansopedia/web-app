@@ -5,3 +5,33 @@
     0 0 0 1px $color-primary,
     0 0 0 3px $color-primary-light;
 }
+
+@mixin mobile() {
+  @media screen and (width <= 768px) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  @media screen and (width >= 768px) and (width <= 1025px) {
+    @content;
+  }
+}
+
+@mixin laptop() {
+  @media screen and (width >= 1025px) and (width <= 1441px) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media screen and (width >= 1441px) and (width <= 1920px) {
+    @content;
+  }
+}
+
+@mixin desktop-large() {
+  @media screen and (width >= 1920px) {
+    @content;
+  }
+}
