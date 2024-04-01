@@ -10,6 +10,8 @@ import Button from '../../../components/ui/Button/Button';
 
 import logo from '../../../assets/Ansopedia_logo.svg';
 import style from './navbar.module.scss';
+import Modal from '../../../components/ui/Modal/Modal';
+import { useModal } from '../../../components/ui/Modal/useModal';
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -21,6 +23,7 @@ const navItems = [
 const NavBar = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { closeModal, isOpen, openModal } = useModal();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -44,11 +47,14 @@ const NavBar = () => {
               </Link>
             ))}
           </div>
-          <Button>Sign in</Button>
+          <Button onClick={openModal}>Sign in</Button>
         </div>
         <div className={style['menu-cta']}>
           <Button onClick={toggleMobileMenu}>X</Button>
         </div>
+        <Modal isOpen={isOpen} onClose={closeModal}>
+          sdf
+        </Modal>
       </nav>
     </div>
   );

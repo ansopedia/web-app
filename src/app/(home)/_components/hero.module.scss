@@ -18,15 +18,22 @@
   }
 
   .hero-body {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
     padding: $padding-60 $padding-0;
-    gap: 32px;
-    margin-top: 100px;
+    margin-top: 50px;
+    display: grid;
+    gap: 16px;
+
+    @include m.larger-mobile {
+      margin-top: 100px;
+      grid-template-columns: 1fr 1fr;
+      padding: $padding-0;
+      flex-direction: row;
+    }
 
     @include m.tablet {
+      gap: 32px;
+      grid-template-columns: 1fr 1fr;
+      padding: $padding-0;
       flex-direction: row;
     }
   }
@@ -35,7 +42,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 32px;
+    gap: 16px;
+
+    @include m.larger-mobile {
+      gap: 20px;
+    }
+
+    @include m.tablet {
+      gap: 32px;
+    }
 
     .hero-title {
       span {
@@ -45,7 +60,14 @@
 
     .hero-cta {
       display: flex;
+      align-items: center;
       gap: 24px;
+      flex-wrap: wrap;
+      width: fit-content;
+
+      button {
+        flex-grow: 1;
+      }
     }
   }
 
@@ -53,18 +75,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    max-width: 360px;
+    padding: $padding-4;
 
-    img {
-      height: 480px;
-      position: static;
+    &--tablet {
+      display: none;
     }
 
-    @include m.tablet {
-      order: 2;
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
 
-      img {
-        height: 540px;
-        position: static;
+    @include m.larger-mobile {
+      order: 2;
+      max-width: unset;
+
+      &--tablet {
+        display: unset;
+      }
+
+      &--mobile {
+        display: none;
       }
     }
   }
