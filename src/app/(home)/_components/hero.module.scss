@@ -33,7 +33,7 @@
     @include m.tablet {
       gap: 32px;
       grid-template-columns: 1fr 1fr;
-      padding: $padding-0;
+      padding: $padding-64 $padding-0;
       flex-direction: row;
     }
   }
