@@ -1,0 +1,23 @@
+@use '../../../styles' as *;
+
+.global-education-section {
+  .container {
+    @include container;
+
+    padding: $padding-72 $padding-0;
+    display: flex;
+    gap: 40px;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      gap: 24px;
+    }
+
+    .image-content {
+      padding: $padding-72 $padding-0;
+    }
+  }
+}

@@ -29,7 +29,7 @@ const Welcome = () => {
           </div>
           <div className={style['body']}>
             <div className={style['card']}>
-              <Image src={examMaster} alt="Quiz" width={64} height={64} />
+              <Image src={examMaster} alt="Exam Mastery" width={64} height={64} />
               <Typography variant="h3">Exam Mastery</Typography>
               <Typography align="center">
                 Unlock past exam secrets, Master your prep with years of questions & solutions
@@ -44,7 +44,7 @@ const Welcome = () => {
               <Button>Play Now</Button>
             </div>
             <div className={style['card']}>
-              <Image src={certificate} alt="Quiz" width={64} height={64} />
+              <Image src={certificate} alt="Global Certificate" width={64} height={64} />
               <Typography variant="h3">Global Certificate</Typography>
               <Typography align="center">
                 Explore pathways to global certifications and enhance your academic portfolio
