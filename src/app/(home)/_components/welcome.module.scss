@@ -1,0 +1,51 @@
+@use '../../../styles' as *;
+
+.background-wave {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.welcome-section {
+  background-color: $color-light-cream;
+
+  .container {
+    @include container;
+
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+
+    .header {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 24px;
+
+      .sub-heading {
+        width: 80%;
+        margin: auto;
+      }
+    }
+
+    .body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px 32px;
+      padding-bottom: $padding-72;
+
+      .card {
+        padding: $padding-48 $padding-24;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        background-color: $color-white;
+        border-radius: 32px;
+        height: fit-content;
+        box-shadow: 0 4px 4px 0 $color-box-shadow;
+      }
+    }
+  }
+}

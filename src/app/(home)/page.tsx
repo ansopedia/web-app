@@ -4,6 +4,7 @@ import { Memo, useObservable } from '@legendapp/state/react';
 import { useInterval } from 'usehooks-ts';
 import Hero from './_components/Hero';
 import Typography from '../../components/ui/Typography/Typography';
+import Welcome from './_components/Welcome';
 import NavBar from './_components/NavBar';
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
     <>
       <NavBar />
       <Hero />
+      <Welcome />
       <Typography variant="h1">Hello, World!</Typography>
       <Typography variant="h1" color="default">
         Hello, World!

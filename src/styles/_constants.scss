@@ -1,17 +1,19 @@
+$color-backdrop: #00000080;
+$color-box-shadow: #00000021;
+$color-dark: #262626;
+$color-light-cream: #fff4eb;
+$color-link-dark: #2979bd; /* Royal Blue */
+$color-link-light: #dbeafe; /* Sky Blue */
+$color-link: #3498db; /* Bright Blue */
+$color-primary-dark: #c0501e; /* Maroon */
+$color-primary-light: #ffedd5; /* Light Coral */
 $color-primary: #f37335; /* Vivid Orange-Red */
 $color-secondary: #fdb97a; /* Light Coral */
-$color-primary-light: #ffedd5; /* Light Coral */
-$color-primary-dark: #c0501e; /* Maroon */
-$color-text-primary: #2c3e50; /* Dark Grayish Blue */
-$color-text-primary-light: #43525f; /* Medium Grayish Blue */
 $color-text-primary-dark: #192f40; /* Charcoal Blue */
-$color-white: #fff; /* White */
-$color-link: #3498db; /* Bright Blue */
-$color-link-light: #dbeafe; /* Sky Blue */
-$color-link-dark: #2979bd; /* Royal Blue */
-$color-dark: #262626;
+$color-text-primary-light: #43525f; /* Medium Grayish Blue */
+$color-text-primary: #2c3e50; /* Dark Grayish Blue */
 $color-transparent: transparent;
-$color-backdrop: #00000080;
+$color-white: #fff; /* White */
 
 // Font sizes
 $font-size-12: 1.2rem;
@@ -70,3 +72,5 @@ $padding-52: 5.2rem;
 $padding-56: 5.6rem;
 $padding-60: 6rem;
 $padding-64: 6.4rem;
+$padding-68: 6.8rem;
+$padding-72: 7.2rem;
