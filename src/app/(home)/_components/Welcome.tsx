@@ -29,26 +29,38 @@ const Welcome = () => {
           </div>
           <div className={style['body']}>
             <div className={style['card']}>
-              <Image src={examMaster} alt="Exam Mastery" width={64} height={64} />
-              <Typography variant="h3">Exam Mastery</Typography>
-              <Typography align="center">
-                Unlock past exam secrets, Master your prep with years of questions & solutions
-              </Typography>
+              <div className={style['card--header']}>
+                <Image src={examMaster} alt="Exam Mastery" className={style['icon']} />
+                <Typography variant="h3">Exam Mastery</Typography>
+              </div>
+              <div className={style['card--body']}>
+                <Typography align="center">
+                  Unlock past exam secrets, Master your prep with years of questions & solutions
+                </Typography>
+              </div>
             </div>
             <div className={style['card']}>
-              <Image src={quiz} alt="Quiz" width={128} height={128} />
-              <Typography variant="h3">Engaging Quiz</Typography>
-              <Typography align="center">
-                Test your knowledge and prepare for exams with our interactive quizzes.
-              </Typography>
-              <Button>Play Now</Button>
+              <div className={style['card--header']}>
+                <Image src={quiz} alt="Quiz" className={style['icon']} />
+                <Typography variant="h3">Engaging Quiz</Typography>
+              </div>
+              <div className={style['card--body']}>
+                <Typography align="center">
+                  Test your knowledge and prepare for exams with our interactive quizzes.
+                </Typography>
+                <Button>Play Now</Button>
+              </div>
             </div>
             <div className={style['card']}>
-              <Image src={certificate} alt="Global Certificate" width={64} height={64} />
-              <Typography variant="h3">Global Certificate</Typography>
-              <Typography align="center">
-                Explore pathways to global certifications and enhance your academic portfolio
-              </Typography>
+              <div className={style['card--header']}>
+                <Image src={certificate} alt="Global Certificate" className={style['icon']} />
+                <Typography variant="h3">Global Certificate</Typography>
+              </div>
+              <div className={style['card--body']}>
+                <Typography align="center">
+                  Explore pathways to global certifications and enhance your academic portfolio
+                </Typography>
+              </div>
             </div>
           </div>
         </div>
