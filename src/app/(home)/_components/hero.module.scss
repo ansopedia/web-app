@@ -1,7 +1,8 @@
-@use '../../../styles/constants' as *;
-@use '../../../styles/mixins' as m;
+@use '../../../styles' as *;
 
 .hero {
+  @include container;
+
   &-background {
     background-image: url('../../../assets//Hero_background.svg');
     background-size: cover;
@@ -12,7 +13,7 @@
     height: 424px;
     z-index: -1;
 
-    @include m.tablet {
+    @include tablet {
       width: 1080px;
     }
   }
@@ -23,14 +24,14 @@
     display: grid;
     gap: 16px;
 
-    @include m.larger-mobile {
+    @include larger-mobile {
       margin-top: 100px;
       grid-template-columns: 1fr 1fr;
-      padding: $padding-0;
+      padding: $padding-64 $padding-0;
       flex-direction: row;
     }
 
-    @include m.tablet {
+    @include tablet {
       gap: 32px;
       grid-template-columns: 1fr 1fr;
       padding: $padding-64 $padding-0;
@@ -44,18 +45,12 @@
     justify-content: center;
     gap: 16px;
 
-    @include m.larger-mobile {
+    @include larger-mobile {
       gap: 20px;
     }
 
-    @include m.tablet {
+    @include tablet {
       gap: 32px;
-    }
-
-    .hero-title {
-      span {
-        color: $color-primary;
-      }
     }
 
     .hero-cta {
@@ -90,7 +85,7 @@
       height: 100%;
     }
 
-    @include m.larger-mobile {
+    @include larger-mobile {
       order: 2;
       max-width: unset;
 

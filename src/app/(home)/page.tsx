@@ -4,7 +4,7 @@ import { Memo, useObservable } from '@legendapp/state/react';
 import { useInterval } from 'usehooks-ts';
 import Hero from './_components/Hero';
 import Typography from '../../components/ui/Typography/Typography';
-import style from './page.module.scss';
+import NavBar from './_components/NavBar';
 
 export default function Home() {
   const count$ = useObservable(1);
@@ -14,7 +14,8 @@ export default function Home() {
   }, 600);
 
   return (
-    <div className={style.container}>
+    <>
+      <NavBar />
       <Hero />
       <Typography variant="h1">Hello, World!</Typography>
       <Typography variant="h1" color="default">
@@ -35,6 +36,6 @@ export default function Home() {
           Count: <Memo>{count$}</Memo>
         </div>
       </main>
-    </div>
+    </>
   );
 }

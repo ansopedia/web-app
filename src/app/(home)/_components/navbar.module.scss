@@ -1,21 +1,21 @@
-@use '../../../styles/constants' as *;
-@use '../../../styles/mixins' as m;
+@use '../../../styles' as *;
 
 .sticky-nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  background-color: #fffc;
 }
 
 .nav {
+  @include container;
+
   height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
-  max-width: 1080px;
-  width: 90%;
   margin: auto;
 
   .logo {
@@ -25,10 +25,6 @@
     align-items: center;
     gap: 8px;
     z-index: 999;
-
-    h3 {
-      z-index: 999;
-    }
   }
 
   .menu-tablet {
@@ -63,7 +59,7 @@
   }
 
   .menu-mobile {
-    @include m.mobile {
+    @include mobile {
       position: fixed;
       top: 0;
       left: 0;
@@ -82,7 +78,7 @@
     }
   }
 
-  @include m.tablet {
+  @include tablet {
     .menu-mobile,
     .menu-cta {
       display: none;

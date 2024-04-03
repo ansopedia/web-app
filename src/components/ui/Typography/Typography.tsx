@@ -24,6 +24,7 @@ interface TypographyProps {
   color?: keyof typeof colorMap;
   children: React.ReactNode;
   className?: string;
+  align?: 'left' | 'center' | 'right';
 }
 
 const Typography: FC<TypographyProps> = ({
@@ -31,10 +32,11 @@ const Typography: FC<TypographyProps> = ({
   color = 'default',
   className,
   children,
+  align = 'left',
 }: TypographyProps) => {
   const colorClass = colorMap[color];
   const variantClass = variantMap[variant];
-  const styleName = `${style[variantClass]} ${style[colorClass]} ${className}`;
+  const styleName = `${style[variantClass]} ${style[colorClass]} ${style[align]} ${className}`;
   const Component = variant;
 
   return <Component className={styleName}>{children}</Component>;
