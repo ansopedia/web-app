@@ -25,7 +25,7 @@
 
   &:hover {
     background-position: right center;
-    box-shadow: 0 10px 30px 0 $color-transparent;
+    box-shadow: $box-shadow;
   }
 
   &:focus {
