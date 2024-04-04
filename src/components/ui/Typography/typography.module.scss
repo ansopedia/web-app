@@ -1,29 +1,29 @@
 @use 'sass:map';
-@use '../../../styles/constants' as *;
+@use '../../../styles' as *;
 
 .primary {
   color: $color-primary;
 }
 
 .secondary {
-  color: $color-secondary;
+  color: $color-text-primary-light;
 }
 
 .default {
-  color: $color-gray;
+  color: $color-text-primary;
 }
 
 .error {
-  color: $color-error;
+  color: $color-primary-dark;
 }
 
 $font-sizes: (
-  '1': $font-size-h1,
-  '2': $font-size-h2,
-  '3': $font-size-h3,
-  '4': $font-size-h4,
-  '5': $font-size-h5,
-  '6': $font-size-h6,
+  '1': clamp($font-size-24, 3.5vw, $font-size-48),
+  '2': clamp($font-size-20, 3.5vw, $font-size-36),
+  '3': clamp($font-size-16, 3.5vw, $font-size-24),
+  '4': clamp($font-size-18, 3.5vw, $font-size-20),
+  '5': clamp($font-size-16, 3.5vw, $font-size-18),
+  '6': clamp($font-size-12, 3.5vw, $font-size-16),
 );
 
 @for $i from 1 through 6 {
@@ -33,13 +33,25 @@ $font-sizes: (
 }
 
 .paragraph {
-  font-size: $font-size-body1;
-  font-weight: $font-weight-regular;
+  font-size: clamp($font-size-16, 3.5vw, $font-size-18);
+  font-weight: $font-weight-400;
   line-height: 1.6;
 }
 
 .span {
-  font-size: $font-size-body2;
-  font-weight: $font-weight-regular;
-  line-height: 1.4;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
 }

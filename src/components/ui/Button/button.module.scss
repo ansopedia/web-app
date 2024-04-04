@@ -1,10 +1,9 @@
-@use '../../../styles/mixins' as m;
-@use '../../../styles/constants' as *;
+@use '../../../styles' as *;
 
 @mixin button-styles {
-  font-size: $font-size-16;
+  font-size: $font-size-18;
   font-style: normal;
-  font-weight: $font-weight-regular;
+  font-weight: $font-weight-400;
   line-height: normal;
   text-align: center;
   background-color: $color-white;
@@ -18,7 +17,7 @@
 .contained {
   @include button-styles;
 
-  background-image: linear-gradient(to left, $color-error 0%, $color-secondary 51%, #ee390f 100%);
+  background-image: linear-gradient(to left, #ee390f 0%, #f9b700 51%, #ee390f 100%);
   background-size: 200% auto;
   border-radius: 20px;
   color: $color-white;
@@ -26,11 +25,11 @@
 
   &:hover {
     background-position: right center;
-    box-shadow: 0 10px 30px 0 $color-danger-dark-transparent;
+    box-shadow: $box-shadow;
   }
 
   &:focus {
-    @include m.box-shadow;
+    @include box-shadow;
   }
 }
 
@@ -38,24 +37,26 @@
   @include button-styles;
 
   border-radius: 20px;
-  box-shadow: 0 0 0 2px $color-primary-light;
+  box-shadow: 0 0 0 2px $color-secondary;
   color: $color-primary;
   transition: all 0.4s ease-in-out;
 
   &:hover,
   &:focus {
-    @include m.box-shadow;
+    @include box-shadow;
   }
 }
 
 .text {
   @include button-styles;
 
+  border-radius: 8px;
   color: $color-primary;
+  background-color: $color-transparent;
 
   &:hover,
   &:focus {
     border-radius: 8px;
-    background-color: $color-gray-light;
+    background-color: $color-primary-light;
   }
 }

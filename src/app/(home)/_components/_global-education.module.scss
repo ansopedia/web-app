@@ -1,0 +1,48 @@
+@use '../../../styles' as *;
+
+.global-education-section {
+  .container {
+    @include container;
+
+    margin-top: $margin-48;
+    margin-bottom: $margin-48;
+    padding: $padding-72 $padding-0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include laptop {
+      gap: 0;
+    }
+
+    &--body {
+      display: grid;
+
+      @include tablet {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+      }
+
+      .image-content {
+        height: 100%;
+        width: 100%;
+
+        @include tablet {
+          order: 2;
+        }
+
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

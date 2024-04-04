@@ -23,15 +23,23 @@ interface TypographyProps {
   variant?: keyof typeof variantMap;
   color?: keyof typeof colorMap;
   children: React.ReactNode;
+  className?: string;
+  align?: 'left' | 'center' | 'right';
 }
 
-const Typography: FC<TypographyProps> = ({ variant = 'p', color = 'default', children }: TypographyProps) => {
+const Typography: FC<TypographyProps> = ({
+  variant = 'p',
+  color = 'default',
+  className,
+  children,
+  align = 'left',
+}: TypographyProps) => {
   const colorClass = colorMap[color];
   const variantClass = variantMap[variant];
-  const className = `${style[variantClass]} ${style[colorClass]}`;
+  const styleName = `${style[variantClass]} ${style[colorClass]} ${style[align]} ${className}`;
   const Component = variant;
 
-  return <Component className={className}>{children}</Component>;
+  return <Component className={styleName}>{children}</Component>;
 };
 
 export default Typography;

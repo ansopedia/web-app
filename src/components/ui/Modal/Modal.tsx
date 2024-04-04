@@ -41,7 +41,13 @@ const Modal: FC<ModalProps> = ({ children, isOpen, onClose }: ModalProps) => {
       <div className={style['modal-backdrop']} />
       <div className={style.modal}>
         {children}
-        <Button variant="text" onClick={onClose} className={style['modal-close']} autoFocus onKeyDown={handleKeyDown}>
+        <Button
+          variant="text"
+          onClick={onClose}
+          className={style['modal-close-btn']}
+          autoFocus
+          onKeyDown={handleKeyDown}
+        >
           X
         </Button>
       </div>

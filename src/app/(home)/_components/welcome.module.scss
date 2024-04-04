@@ -1,0 +1,115 @@
+@use '../../../styles' as *;
+
+.background-wave {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.welcome-section {
+  background-color: $color-light-cream;
+  padding: $padding-28 $padding-0;
+
+  @include larger-mobile {
+    padding: $padding-0;
+  }
+
+  .container {
+    @include container;
+
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+
+    .header {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 24px;
+
+      .sub-heading {
+        width: 80%;
+        margin: auto;
+      }
+    }
+
+    .body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 24px 32px;
+      padding-bottom: $padding-72;
+
+      .card {
+        padding: $padding-48 $padding-24;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+        background-color: $color-white;
+        border-radius: 32px;
+        height: fit-content;
+        width: 100%;
+        box-shadow: $box-shadow;
+
+        &--header {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+          flex-direction: column;
+          flex-shrink: 0;
+          width: fit-content;
+
+          .icon {
+            width: 64px;
+            height: 64px;
+          }
+        }
+
+        &--body {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+      }
+
+      @include larger-mobile {
+        .card {
+          padding: $padding-24 $padding-48;
+          flex-direction: row;
+
+          &--body {
+            p {
+              text-align: left;
+            }
+          }
+        }
+      }
+
+      @include laptop {
+        flex-direction: row;
+        gap: 32px;
+
+        .card {
+          padding: $padding-48 $padding-24;
+          flex-direction: column;
+
+          &:nth-child(2) {
+            .icon {
+              width: 128px;
+              height: 128px;
+            }
+          }
+
+          &--body {
+            p {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
