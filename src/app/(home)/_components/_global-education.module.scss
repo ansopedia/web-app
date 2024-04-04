@@ -4,6 +4,8 @@
   .container {
     @include container;
 
+    margin-top: $margin-48;
+    margin-bottom: $margin-48;
     padding: $padding-72 $padding-0;
     display: flex;
     flex-direction: column;
