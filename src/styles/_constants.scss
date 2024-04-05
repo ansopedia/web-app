@@ -11,9 +11,10 @@ $color-secondary: #fdb97a; /* Light Coral */
 $color-text-primary-dark: #192f40; /* Charcoal Blue */
 $color-text-primary-light: #43525f; /* Medium Grayish Blue */
 $color-text-primary: #2c3e50; /* Dark Grayish Blue */
+$color-text-disabled: #8a8c8f;
 $color-transparent: transparent;
 $color-white: #fff; /* White */
-$color-disabled: #E5E5E6;/* Disable field color */
+$color-gray-50: #e5e5e6; /* Disable field color */
 $box-shadow: 0 4px 4px 0 #00000021;
 
 // Font sizes
@@ -96,3 +97,45 @@ $margin-60: 6rem;
 $margin-64: 6.4rem;
 $margin-68: 6.8rem;
 $margin-72: 7.2rem;
+
+// Gap
+$gap-0: 0;
+$gap-4: 0.4rem;
+$gap-8: 0.8rem;
+$gap-12: 1.2rem;
+$gap-16: 1.6rem;
+$gap-20: 2rem;
+$gap-24: 2.4rem;
+$gap-28: 2.8rem;
+$gap-32: 3.2rem;
+$gap-36: 3.6rem;
+$gap-40: 4rem;
+$gap-44: 4.4rem;
+$gap-48: 4.8rem;
+$gap-52: 5.2rem;
+$gap-56: 5.6rem;
+
+// Line height
+$line-height-0: 0;
+$line-height-4: 0.4rem;
+$line-height-8: 0.8rem;
+$line-height-12: 1.2rem;
+$line-height-16: 1.6rem;
+$line-height-20: 2rem;
+$line-height-24: 2.4rem;
+$line-height-28: 2.8rem;
+
+// Border radius
+$border-radius-0: 0;
+$border-radius-4: 0.4rem;
+$border-radius-8: 0.8rem;
+$border-radius-12: 1.2rem;
+$border-radius-16: 1.6rem;
+$border-radius-20: 2rem;
+$border-radius-24: 2.4rem;
+$border-radius-28: 2.8rem;
+$border-radius-32: 3.2rem;
+$border-radius-36: 3.6rem;
+$border-radius-40: 4rem;
+$border-radius-44: 4.4rem;
+$border-radius-48: 4.8rem;

@@ -2,27 +2,33 @@
 
 .checkbox-container {
   display: flex;
-  gap: $margin-8;
+  gap: $gap-8;
   align-items: center;
 
   .label {
     color: $color-text-primary;
     font-weight: $font-weight-400;
-    line-height: 24px;
+    line-height: $line-height-24;
     font-size: $font-size-18;
   }
 
   .checkbox {
     width: 20px;
     height: 20px;
-    border-radius: 4px;
+    border-radius: $border-radius-4;
     appearance: none;
-    border: 1px solid $color-disabled;
+    border: 1px solid $color-gray-50;
+    outline: none;
     transition: 200ms;
 
+    
     &:focus {
       border-color: $color-primary;
       cursor: pointer;
+    }
+    
+    &:not(:checked) {
+      border: 1px solid $color-gray-50;
     }
 
     &:checked {
@@ -34,14 +40,19 @@
 
       &::before {
         content: '\2713';
-        color: white;
+        color: $color-white;
       }
     }
 
     &:disabled {
       appearance: none;
-      background-color: $color-disabled;
-      pointer-events: none;
+      background-color: $color-gray-50;
+      cursor: not-allowed;
+    }
+
+    &:disabled + .label {
+      color: $color-text-disabled;
+      cursor: not-allowed;
     }
 
     &:hover:enabled {
@@ -49,7 +60,7 @@
       cursor: pointer;
     }
 
-    &:hover:enabled + .label{
+    &:hover:enabled + .label {
       cursor: pointer;
     }
   }

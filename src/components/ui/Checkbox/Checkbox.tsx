@@ -1,34 +1,19 @@
-import { FC, useId, useRef } from 'react';
+import { FC, useId } from 'react';
 import style from './checkbox.module.scss';
 
 interface InputProps extends React.ComponentPropsWithRef<'input'> {
   label: string;
-  handleCheckboxInput?: (isChecked: boolean) => void;
   checked?: boolean;
   disabled?: boolean;
 }
 
-const Checkbox: FC<InputProps> = ({ label, handleCheckboxInput, ...props }: InputProps) => {
-  const id = useId() + label;
-  const ref = useRef<HTMLInputElement>(null);
+const Checkbox: FC<InputProps> = ({ label, ...props }: InputProps) => {
+  const id = `${useId()}-${label}`;
 
   return (
     <div className={style['checkbox-container']}>
-      <input
-        type="checkbox"
-        className={style.checkbox}
-        id={id}
-        ref={ref}
-        onChange={(event) => {
-          handleCheckboxInput?.(event.target.checked);
-
-          if (!event.target.checked) {
-            ref.current?.blur();
-          }
-        }}
-        {...props}
-      />
-      <label htmlFor={id} className={style.label}>
+      <input type="checkbox" className={style['checkbox']} id={id} onChange={props.onChange} {...props} />
+      <label htmlFor={id} className={style['label']}>
         {label}
       </label>
     </div>
