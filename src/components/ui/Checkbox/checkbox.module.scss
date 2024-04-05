@@ -21,14 +21,9 @@
     outline: none;
     transition: 200ms;
 
-    
-    &:focus {
+    &:focus-visible {
       border-color: $color-primary;
       cursor: pointer;
-    }
-    
-    &:not(:checked) {
-      border: 1px solid $color-gray-50;
     }
 
     &:checked {

@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import Checkbox from 'components/ui/Checkbox/Checkbox';
+import Checkbox from '../../components/ui/Checkbox/Checkbox';
 
-const Home = () => {
+const CheckboxPlayGround = () => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -12,10 +12,10 @@ const Home = () => {
 
   return (
     <>
-      <Checkbox label="male" onChange={handleCheckboxInput} checked={isChecked} />
-      <Checkbox label="female" disabled />
+      <Checkbox label="Male" onChange={handleCheckboxInput} checked={isChecked} />
+      <Checkbox label="Male" disabled />
     </>
   );
 };
 
-export default Home;
+export default CheckboxPlayGround;

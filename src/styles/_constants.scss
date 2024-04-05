@@ -1,5 +1,6 @@
 $color-backdrop: #00000080;
 $color-dark: #262626;
+$color-gray-50: #e5e5e6; /* Disable field color */
 $color-light-cream: #fff4eb;
 $color-link-dark: #2979bd; /* Royal Blue */
 $color-link-light: #dbeafe; /* Sky Blue */
@@ -8,13 +9,14 @@ $color-primary-dark: #c0501e; /* Maroon */
 $color-primary-light: #ffedd5; /* Light Coral */
 $color-primary: #f37335; /* Vivid Orange-Red */
 $color-secondary: #fdb97a; /* Light Coral */
+$color-text-disabled: #8a8c8f;
 $color-text-primary-dark: #192f40; /* Charcoal Blue */
 $color-text-primary-light: #43525f; /* Medium Grayish Blue */
 $color-text-primary: #2c3e50; /* Dark Grayish Blue */
-$color-text-disabled: #8a8c8f;
 $color-transparent: transparent;
 $color-white: #fff; /* White */
-$color-gray-50: #e5e5e6; /* Disable field color */
+
+// Box shadow
 $box-shadow: 0 4px 4px 0 #00000021;
 
 // Font sizes
