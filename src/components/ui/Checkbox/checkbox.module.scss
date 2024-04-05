@@ -1,0 +1,56 @@
+@use '../../../styles' as *;
+
+.checkbox-container {
+  display: flex;
+  gap: $margin-8;
+  align-items: center;
+
+  .label {
+    color: $color-text-primary;
+    font-weight: $font-weight-400;
+    line-height: 24px;
+    font-size: $font-size-18;
+  }
+
+  .checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    appearance: none;
+    border: 1px solid $color-disabled;
+    transition: 200ms;
+
+    &:focus {
+      border-color: $color-primary;
+      cursor: pointer;
+    }
+
+    &:checked {
+      background-color: $color-primary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $color-primary;
+
+      &::before {
+        content: '\2713';
+        color: white;
+      }
+    }
+
+    &:disabled {
+      appearance: none;
+      background-color: $color-disabled;
+      pointer-events: none;
+    }
+
+    &:hover:enabled {
+      border-color: $color-primary;
+      cursor: pointer;
+    }
+
+    &:hover:enabled + .label{
+      cursor: pointer;
+    }
+  }
+}
