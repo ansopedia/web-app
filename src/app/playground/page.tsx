@@ -1,20 +1,24 @@
 'use client';
 
-import { useState } from 'react';
+import { Memo, useObservable } from '@legendapp/state/react';
+
 import Checkbox from '../../components/ui/Checkbox/Checkbox';
+import Typography from '../../components/ui/Typography/Typography';
+
+import style from './playground.module.scss';
 
 const CheckboxPlayGround = () => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleCheckboxInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setIsChecked(event.target.checked);
-  };
+  const state$ = useObservable({ checked: false });
 
   return (
-    <>
-      <Checkbox label="Male" onChange={handleCheckboxInput} checked={isChecked} />
-      <Checkbox label="Male" disabled />
-    </>
+    <section className={style['playground-section']}>
+      <Typography variant="h1">Checkbox Playground</Typography>
+      <Checkbox label="Male" state$={state$} />
+      <Checkbox label="Female" state$={state$} disabled />
+      <Typography>
+        State <Memo>{() => <Typography variant="span">{'' + state$.checked.get()}</Typography>}</Memo>
+      </Typography>
+    </section>
   );
 };
 
