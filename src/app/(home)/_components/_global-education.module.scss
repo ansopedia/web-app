@@ -9,10 +9,10 @@
     padding: $padding-72 $padding-0;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: $gap-40;
 
     @include laptop {
-      gap: 0;
+      gap: $gap-0;
     }
 
     &--body {
@@ -20,14 +20,14 @@
 
       @include tablet {
         grid-template-columns: 1fr 1fr;
-        gap: 32px;
+        gap: $gap-32;
       }
 
       .content {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 24px;
+        gap: $gap-24;
       }
 
       .image-content {

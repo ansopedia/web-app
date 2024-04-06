@@ -15,7 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
+  gap: $gap-24;
   margin: auto;
 
   .logo {
@@ -23,7 +23,7 @@
     font-weight: $font-weight-700;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: $gap-8;
     z-index: 999;
   }
 
@@ -38,7 +38,7 @@
   .menubar {
     .menu {
       display: flex;
-      gap: 24px;
+      gap: $gap-24;
       align-items: center;
       justify-content: center;
 
@@ -69,7 +69,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 24px;
+      gap: $gap-24;
       background-color: $color-white;
 
       .menu {
@@ -90,7 +90,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 24px;
+      gap: $gap-24;
       background-color: $color-transparent;
 
       .menu {

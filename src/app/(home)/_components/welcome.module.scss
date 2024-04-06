@@ -19,13 +19,13 @@
 
     display: flex;
     flex-direction: column;
-    gap: 56px;
+    gap: $gap-56;
 
     .header {
       display: flex;
       justify-content: center;
       flex-direction: column;
-      gap: 24px;
+      gap: $gap-24;
 
       .sub-heading {
         width: 80%;
@@ -38,7 +38,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      gap: 24px 32px;
+      gap: $gap-24 $gap-32;
       padding-bottom: $padding-72;
 
       .card {
@@ -46,9 +46,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 28px;
+        gap: $gap-28;
         background-color: $color-white;
-        border-radius: 32px;
+        border-radius: $border-radius-32;
         height: fit-content;
         width: 100%;
         box-shadow: $box-shadow;
@@ -57,7 +57,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 16px;
+          gap: $gap-16;
           flex-direction: column;
           flex-shrink: 0;
           width: fit-content;
@@ -71,7 +71,7 @@
         &--body {
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: $gap-16;
         }
       }
 
@@ -90,7 +90,7 @@
 
       @include laptop {
         flex-direction: row;
-        gap: 32px;
+        gap: $gap-32;
 
         .card {
           padding: $padding-48 $padding-24;
