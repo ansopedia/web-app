@@ -4,15 +4,13 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
-import { useModal } from '../../../components/ui/Modal/useModal';
-
 import Typography from '../../../components/ui/Typography/Typography';
 import Link from 'next/link';
 import Button from '../../../components/ui/Button/Button';
 
 import logo from '../../../assets/Ansopedia_logo.svg';
 import style from './navbar.module.scss';
-import Modal from '../../../components/ui/Modal/Modal';
+import { useRouter } from 'next/navigation';
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -23,8 +21,9 @@ const navItems = [
 
 const NavBar = () => {
   const pathname = usePathname();
+  const router = useRouter();
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { closeModal, isOpen, openModal } = useModal();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -49,14 +48,11 @@ const NavBar = () => {
               </Link>
             ))}
           </div>
-          <Button onClick={openModal}>Sign in</Button>
+          <Button onClick={() => router.push('login')}>Sign in</Button>
         </div>
         <div className={style['menu-cta']}>
           <Button onClick={toggleMobileMenu}>X</Button>
         </div>
-        <Modal isOpen={isOpen} onClose={closeModal}>
-          sdf
-        </Modal>
       </nav>
     </div>
   );
