@@ -28,6 +28,7 @@ const NavBar = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
   return (
     <div className={style['sticky-nav']}>
       <nav className={style.nav}>
