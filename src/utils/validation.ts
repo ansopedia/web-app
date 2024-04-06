@@ -11,10 +11,19 @@ export const userSchema = z.object({
     .transform((val) => val.toLowerCase().trim()),
   email: z.string().email().trim().toLowerCase(),
   password: z.string().min(8, 'password must be at least 8 characters'),
-  confirmPassword: z.string(),
   isDeleted: z.boolean().default(false),
   createdAt: z.date(),
   updatedAt: z.date(),
 });
 
 export const loginSchema = userSchema.pick({ email: true, password: true });
+
+export const createUserSchema = userSchema
+  .omit({ id: true, createdAt: true, updatedAt: true, confirmPassword: true })
+  .extend({
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: 'Confirm password does not match password',
+    path: ['confirmPassword'],
+  });

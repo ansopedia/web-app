@@ -49,8 +49,7 @@ const Login = () => {
         error.errors.forEach((error) => {
           alert(error.message);
         });
-      }
-      alert('An error occurred');
+      } else alert('An error occurred');
     }
   };
 
