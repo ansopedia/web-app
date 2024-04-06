@@ -2,11 +2,11 @@
 
 .input-group {
   border: 1px solid $color-dark;
-  border-radius: $border-radius-12;
+  border-radius: 12px;
   padding: $padding-12 $padding-16;
   width: 100%;
   display: flex;
-  gap: $gap-8;
+  gap: 10px;
 
   &:focus-within {
     border-color: $color-primary;

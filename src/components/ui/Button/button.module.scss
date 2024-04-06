@@ -19,7 +19,7 @@
 
   background-image: linear-gradient(to left, #ee390f 0%, #f9b700 51%, #ee390f 100%);
   background-size: 200% auto;
-  border-radius: $border-radius-20;
+  border-radius: 20px;
   color: $color-white;
   transition: all 0.4s ease-in-out;
 
@@ -36,7 +36,7 @@
 .outlined {
   @include button-styles;
 
-  border-radius: $border-radius-20;
+  border-radius: 20px;
   box-shadow: 0 0 0 2px $color-secondary;
   color: $color-primary;
   transition: all 0.4s ease-in-out;
@@ -50,13 +50,13 @@
 .text {
   @include button-styles;
 
-  border-radius: $border-radius-8;
+  border-radius: 8px;
   color: $color-primary;
   background-color: $color-transparent;
 
   &:hover,
   &:focus {
-    border-radius: $border-radius-8;
+    border-radius: 8px;
     background-color: $color-primary-light;
   }
 }

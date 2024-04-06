@@ -35,7 +35,7 @@ $font-sizes: (
 .paragraph {
   font-size: clamp($font-size-16, 3.5vw, $font-size-18);
   font-weight: $font-weight-400;
-  line-height: $line-height-16;
+  line-height: 1.6;
 }
 
 .span {
