@@ -20,6 +20,15 @@
       display: flex;
       flex-direction: column;
       gap: $gap-24;
+
+      .logo {
+        width: 100%;
+        margin-bottom: $margin-28;
+
+        @include larger-mobile {
+          display: none;
+        }
+      }
     }
 
     .login-form {
@@ -31,6 +40,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: $gap-8;
       }
     }
   }

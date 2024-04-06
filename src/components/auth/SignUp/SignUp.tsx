@@ -11,6 +11,8 @@ import email from '../../../assets/icons/sms.svg';
 import lock from '../../../assets/icons/lock.svg';
 import confirmLock from '../../../assets/icons/confirm-lock.svg';
 import signUpIllustrator from '../../../assets/Sign-up-illustrator.svg';
+import logo from '../../../assets/Ansopedia_logo.svg';
+
 import style from '../auth.module.scss';
 
 const SignUp = () => {
@@ -19,6 +21,7 @@ const SignUp = () => {
       <div className={style['auth']}>
         <div className={style.header}>
           <div>
+            <Image src={logo} alt="Login Illustrator" className={style.logo} width={70} height={70} />
             <Typography variant="h2" className={style.title}>
               Want to be an
             </Typography>

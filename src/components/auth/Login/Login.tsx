@@ -12,6 +12,8 @@ import Button from '../../ui/Button/Button';
 import email from '../../../assets/icons/sms.svg';
 import lock from '../../../assets/icons/lock.svg';
 import loginIllustrator from '../../../assets/login-illustrator.svg';
+import logo from '../../../assets/Ansopedia_logo.svg';
+
 import style from '../auth.module.scss';
 
 const Login = () => {
@@ -22,6 +24,7 @@ const Login = () => {
       <div className={style['auth']}>
         <div className={style.header}>
           <div>
+            <Image src={logo} alt="Login Illustrator" className={style.logo} width={70} height={70} />
             <Typography variant="h2" className={style.title}>
               Welcome Back
             </Typography>
