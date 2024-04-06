@@ -59,7 +59,7 @@
   }
 
   .menu-mobile {
-    @include mobile {
+    @media screen and (width <= 768px) {
       position: fixed;
       top: 0;
       left: 0;

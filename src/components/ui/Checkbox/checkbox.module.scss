@@ -17,7 +17,7 @@
     height: 20px;
     border-radius: $border-radius-4;
     appearance: none;
-    border: 1px solid $color-gray-50;
+    border: 1px solid $color-dark;
     outline: none;
     transition: 200ms;
 
@@ -40,6 +40,7 @@
     }
 
     &:disabled {
+      border: 1px solid $color-gray-50;
       appearance: none;
       background-color: $color-gray-50;
       cursor: not-allowed;

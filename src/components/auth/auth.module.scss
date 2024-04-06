@@ -1,0 +1,62 @@
+@use '../../styles' as *;
+
+.auth-section {
+  @include container;
+
+  padding: $padding-72 $padding-0;
+  gap: $gap-24;
+  display: grid;
+  align-items: center;
+
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .auth {
+    display: grid;
+    gap: $gap-48;
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: $gap-24;
+
+      .logo {
+        width: 100%;
+        margin-bottom: $margin-28;
+
+        @include larger-mobile {
+          display: none;
+        }
+      }
+    }
+
+    .login-form {
+      display: grid;
+      gap: $gap-24;
+
+      .form-action {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: $gap-8;
+      }
+    }
+  }
+
+  .illustrator {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
