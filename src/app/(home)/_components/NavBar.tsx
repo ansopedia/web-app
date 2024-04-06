@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
+import { useModal } from '../../../components/ui/Modal/useModal';
+
 import Typography from '../../../components/ui/Typography/Typography';
 import Link from 'next/link';
 import Button from '../../../components/ui/Button/Button';
@@ -11,7 +13,6 @@ import Button from '../../../components/ui/Button/Button';
 import logo from '../../../assets/Ansopedia_logo.svg';
 import style from './navbar.module.scss';
 import Modal from '../../../components/ui/Modal/Modal';
-import { useModal } from '../../../components/ui/Modal/useModal';
 
 const navItems = [
   { href: '/', label: 'Home' },

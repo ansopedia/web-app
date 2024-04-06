@@ -1,5 +1,7 @@
 import Image from 'next/image';
+
 import Typography from '../../../components/ui/Typography/Typography';
+import Button from '../../../components/ui/Button/Button';
 
 import quiz from '../../../assets/icons/quiz.svg';
 import certificate from '../../../assets/icons/certificate.svg';
@@ -7,7 +9,6 @@ import examMaster from '../../../assets/icons/exam-result.svg';
 import backgroundWave from '../../../assets/background-wave.svg';
 
 import style from './welcome.module.scss';
-import Button from '../../../components/ui/Button/Button';
 
 const Welcome = () => {
   return (
