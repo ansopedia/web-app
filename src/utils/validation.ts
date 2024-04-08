@@ -27,3 +27,6 @@ export const createUserSchema = userSchema
     message: 'Confirm password does not match password',
     path: ['confirmPassword'],
   });
+
+export type Login = z.infer<typeof loginSchema>;
+export type User = z.infer<typeof userSchema>;
