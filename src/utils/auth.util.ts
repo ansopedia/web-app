@@ -11,3 +11,11 @@ export const saveAccessToken = (token: string) => {
     sameSite: 'strict',
   });
 };
+
+export interface IApiResponse<T = undefined> {
+  response: Response;
+  statusCode: number;
+  status: 'success' | 'failed';
+  message: string;
+  data: T;
+}

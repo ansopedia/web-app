@@ -19,7 +19,7 @@ export const userSchema = z.object({
 export const loginSchema = userSchema.pick({ email: true, password: true });
 
 export const createUserSchema = userSchema
-  .omit({ id: true, createdAt: true, updatedAt: true, confirmPassword: true })
+  .pick({ email: true, password: true, username: true, confirmPassword: true })
   .extend({
     confirmPassword: z.string(),
   })
@@ -28,5 +28,6 @@ export const createUserSchema = userSchema
     path: ['confirmPassword'],
   });
 
+export type CreateUser = z.infer<typeof createUserSchema>;
 export type Login = z.infer<typeof loginSchema>;
 export type User = z.infer<typeof userSchema>;

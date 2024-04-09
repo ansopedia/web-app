@@ -23,7 +23,7 @@ const Input: FC<InputProps> = ({ className, icon, $value, $error, ...props }: In
         <Reactive.input $value={$value} className={styleName} {...props} />
       </div>
       <Show if={$error}>
-        <Typography color="error">
+        <Typography color="error" variant="span">
           <Memo>{$error}</Memo>
         </Typography>
       </Show>

@@ -13,20 +13,13 @@ import Button from '../../ui/Button/Button';
 import Form from '../../ui/Form/Form';
 
 import { loginSchema } from '../../../utils/validation';
-import { handleLogin } from './actions';
+import { handleLogin } from '../actions';
 
 import emailIcon from '../../../assets/icons/sms.svg';
 import lockIcon from '../../../assets/icons/lock.svg';
 import style from '../auth.module.scss';
 import { useObservable, useObserve } from '@legendapp/state/react';
-
-export interface IApiResponse<T = undefined> {
-  response: Response;
-  statusCode: number;
-  status: 'success' | 'failed';
-  message: string;
-  data: T;
-}
+import { IApiResponse } from '../../../utils/auth.util';
 
 const LoginForm = () => {
   const router = useRouter();
@@ -73,7 +66,7 @@ const LoginForm = () => {
 
       router.replace('/profile');
     } catch (error) {
-      alert(`Something went wrong ${error}`);
+      alert('Something went wrong! Please try again.');
     }
   };
 

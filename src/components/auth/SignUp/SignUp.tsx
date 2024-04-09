@@ -2,51 +2,93 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import Typography from '../../ui/Typography/Typography';
 import Input from '../../ui/Input/Input';
 import Button from '../../ui/Button/Button';
 
-import email from '../../../assets/icons/sms.svg';
-import lock from '../../../assets/icons/lock.svg';
-import confirmLock from '../../../assets/icons/confirm-lock.svg';
+import userIcon from '../../../assets/icons/user-octagon.svg';
+import emailIcon from '../../../assets/icons/sms.svg';
+import lockIcon from '../../../assets/icons/lock.svg';
+import confirmLockIcon from '../../../assets/icons/confirm-lock.svg';
 import signUpIllustrator from '../../../assets/Sign-up-illustrator.svg';
 import logo from '../../../assets/Ansopedia_logo.svg';
 
 import style from '../auth.module.scss';
-import { ZodError } from 'zod';
 import { createUserSchema } from '../../../utils/validation';
+import { useObservable, useObserve } from '@legendapp/state/react';
+import { IApiResponse } from '../../../utils/auth.util';
+import { handleSignUp } from '../actions';
 
 const SignUp = () => {
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const router = useRouter();
 
-    const formData = new FormData(e.currentTarget);
-    const userData = Object.fromEntries(formData.entries());
+  const signUpState$ = useObservable({
+    email: '',
+    emailError: '',
+    password: '',
+    passwordError: '',
+    username: '',
+    usernameError: '',
+    confirmPassword: '',
+    confirmPasswordError: '',
+    didSave: false,
+  });
 
-    try {
-      const validUserData = createUserSchema.parse(userData);
+  useObserve(() => {
+    if (signUpState$.didSave.get()) {
+      const { email, password, confirmPassword, username } = signUpState$.get();
 
-      const response = await fetch('http://localhost:8001/api/v1/auth/sign-up', {
-        method: 'POST',
-        body: JSON.stringify(validUserData),
-        headers: { 'Content-Type': 'application/json' },
+      const validUserData = createUserSchema.safeParse({
+        email,
+        password,
+        username,
+        confirmPassword,
       });
 
-      const authData = await response.json();
+      signUpState$.emailError.set(!validUserData.success ? validUserData.error.formErrors.fieldErrors.email?.[0] : '');
+      signUpState$.passwordError.set(
+        !validUserData.success ? validUserData.error.formErrors.fieldErrors.password?.[0] : '',
+      );
+      signUpState$.usernameError.set(
+        !validUserData.success ? validUserData.error.formErrors.fieldErrors.username?.[0] : '',
+      );
+      signUpState$.confirmPasswordError.set(
+        !validUserData.success ? validUserData.error.formErrors.fieldErrors.confirmPassword?.[0] : '',
+      );
+    }
+  });
 
-      if (authData.status === 'failed') {
-        alert(authData.message);
+  const handleFormSubmit = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
+    signUpState$.didSave.set(true);
+
+    const {
+      email,
+      emailError,
+      password,
+      passwordError,
+      confirmPassword,
+      confirmPasswordError,
+      username,
+      usernameError,
+    } = signUpState$.get();
+
+    if (emailError || passwordError || confirmPasswordError || usernameError) return;
+
+    try {
+      const res: IApiResponse = await handleSignUp({ email, password, confirmPassword, username });
+
+      if (res.status === 'failed') {
+        alert(res.message);
         return;
       }
 
-      alert('User created successful');
+      alert(`User created successful! ${res.message}`);
+      router.replace('/login');
     } catch (error) {
-      if (error instanceof ZodError) {
-        error.errors.forEach((error) => {
-          alert(error.message);
-        });
-      } else alert('An error occurred');
+      alert('Something went wrong! Please try again.');
     }
   };
 
@@ -65,12 +107,42 @@ const SignUp = () => {
           </div>
           <Typography className={style.subtitle}>Create an account!</Typography>
         </div>
-        <form className={style['login-form']} onSubmit={handleSubmit}>
-          <Input type="text" placeholder="create an unique username!" icon={email} name="username" />
-          <Input type="email" placeholder="example@gmail.com" icon={email} name="email" />
-          <Input type="password" placeholder="password" icon={lock} name="password" />
-          <Input type="password" placeholder="confirm your password" icon={confirmLock} name="confirmPassword" />
-          <Button>Sign up</Button>
+        <form className={style['login-form']}>
+          <Input
+            $value={signUpState$.username}
+            $error={signUpState$.usernameError}
+            type="text"
+            placeholder="create an unique username!"
+            icon={userIcon}
+            name="username"
+          />
+          <Input
+            $value={signUpState$.email}
+            $error={signUpState$.emailError}
+            type="email"
+            placeholder="example@gmail.com"
+            icon={emailIcon}
+            name="email"
+          />
+          <Input
+            $value={signUpState$.password}
+            $error={signUpState$.passwordError}
+            type="password"
+            placeholder="password"
+            icon={lockIcon}
+            name="password"
+          />
+          <Input
+            $value={signUpState$.confirmPassword}
+            $error={signUpState$.confirmPasswordError}
+            type="password"
+            placeholder="confirm your password"
+            icon={confirmLockIcon}
+            name="confirmPassword"
+          />
+          <Button type="submit" onClick={handleFormSubmit}>
+            Sign up
+          </Button>
         </form>
         <Typography>
           Already have an account? <Link href="/login">Login</Link>
