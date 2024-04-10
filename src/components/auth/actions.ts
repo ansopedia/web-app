@@ -5,8 +5,12 @@ import { API } from '../../constants/api';
 
 export const handleLogin = async (formData: Login) => {
   try {
-    const res = await axios.post(API.LOGIN, formData, {
+    const { LOGIN } = await API();
+    const res = await axios.post(LOGIN, formData, {
       withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
     if (res.data.status === 'failed') {
@@ -28,7 +32,9 @@ export const handleLogin = async (formData: Login) => {
 
 export const handleSignUp = async (formData: CreateUser) => {
   try {
-    const res = await axios.post(API.SIGNUP, formData, {
+    const { SIGNUP } = await API();
+
+    const res = await axios.post(SIGNUP, formData, {
       withCredentials: true,
       headers: {
         'Content-Type': 'application/json',

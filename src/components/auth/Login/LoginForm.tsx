@@ -64,7 +64,7 @@ const LoginForm = () => {
         return;
       }
 
-      router.replace('/profile');
+      router.back();
     } catch (error) {
       alert('Something went wrong! Please try again.');
     }
