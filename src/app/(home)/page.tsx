@@ -1,5 +1,3 @@
-'use client';
-
 import Hero from './_components/Hero';
 import Welcome from './_components/Welcome';
 import NavBar from './_components/NavBar';

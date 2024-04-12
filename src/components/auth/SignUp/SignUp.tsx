@@ -2,20 +2,96 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import Typography from '../../ui/Typography/Typography';
 import Input from '../../ui/Input/Input';
 import Button from '../../ui/Button/Button';
 
-import email from '../../../assets/icons/sms.svg';
-import lock from '../../../assets/icons/lock.svg';
-import confirmLock from '../../../assets/icons/confirm-lock.svg';
+import userIcon from '../../../assets/icons/user-octagon.svg';
+import emailIcon from '../../../assets/icons/sms.svg';
+import lockIcon from '../../../assets/icons/lock.svg';
+import confirmLockIcon from '../../../assets/icons/confirm-lock.svg';
 import signUpIllustrator from '../../../assets/Sign-up-illustrator.svg';
 import logo from '../../../assets/Ansopedia_logo.svg';
 
 import style from '../auth.module.scss';
+import { createUserSchema } from '../../../utils/validation';
+import { useObservable, useObserve } from '@legendapp/state/react';
+import { IApiResponse } from '../../../utils/auth.util';
+import { handleSignUp } from '../actions';
 
 const SignUp = () => {
+  const router = useRouter();
+
+  const signUpState$ = useObservable({
+    email: '',
+    emailError: '',
+    password: '',
+    passwordError: '',
+    username: '',
+    usernameError: '',
+    confirmPassword: '',
+    confirmPasswordError: '',
+    didSave: false,
+  });
+
+  useObserve(() => {
+    if (signUpState$.didSave.get()) {
+      const { email, password, confirmPassword, username } = signUpState$.get();
+
+      const validUserData = createUserSchema.safeParse({
+        email,
+        password,
+        username,
+        confirmPassword,
+      });
+
+      signUpState$.emailError.set(!validUserData.success ? validUserData.error.formErrors.fieldErrors.email?.[0] : '');
+      signUpState$.passwordError.set(
+        !validUserData.success ? validUserData.error.formErrors.fieldErrors.password?.[0] : '',
+      );
+      signUpState$.usernameError.set(
+        !validUserData.success ? validUserData.error.formErrors.fieldErrors.username?.[0] : '',
+      );
+      signUpState$.confirmPasswordError.set(
+        !validUserData.success ? validUserData.error.formErrors.fieldErrors.confirmPassword?.[0] : '',
+      );
+    }
+  });
+
+  const handleFormSubmit = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
+    signUpState$.didSave.set(true);
+
+    const {
+      email,
+      emailError,
+      password,
+      passwordError,
+      confirmPassword,
+      confirmPasswordError,
+      username,
+      usernameError,
+    } = signUpState$.get();
+
+    if (emailError || passwordError || confirmPasswordError || usernameError) return;
+
+    try {
+      const res: IApiResponse = await handleSignUp({ email, password, confirmPassword, username });
+
+      if (res.status === 'failed') {
+        alert(res.message);
+        return;
+      }
+
+      alert(`User created successful! ${res.message}`);
+      router.replace('/login');
+    } catch (error) {
+      alert('Something went wrong! Please try again.');
+    }
+  };
+
   return (
     <section className={style['auth-section']}>
       <div className={style['auth']}>
@@ -32,10 +108,41 @@ const SignUp = () => {
           <Typography className={style.subtitle}>Create an account!</Typography>
         </div>
         <form className={style['login-form']}>
-          <Input type="email" placeholder="example@gmail.com" icon={email} />
-          <Input type="password" placeholder="password" icon={lock} />
-          <Input type="password" placeholder="confirm your password" icon={confirmLock} />
-          <Button>Sign up</Button>
+          <Input
+            $value={signUpState$.username}
+            $error={signUpState$.usernameError}
+            type="text"
+            placeholder="create an unique username!"
+            icon={userIcon}
+            name="username"
+          />
+          <Input
+            $value={signUpState$.email}
+            $error={signUpState$.emailError}
+            type="email"
+            placeholder="example@gmail.com"
+            icon={emailIcon}
+            name="email"
+          />
+          <Input
+            $value={signUpState$.password}
+            $error={signUpState$.passwordError}
+            type="password"
+            placeholder="password"
+            icon={lockIcon}
+            name="password"
+          />
+          <Input
+            $value={signUpState$.confirmPassword}
+            $error={signUpState$.confirmPasswordError}
+            type="password"
+            placeholder="confirm your password"
+            icon={confirmLockIcon}
+            name="confirmPassword"
+          />
+          <Button type="submit" onClick={handleFormSubmit}>
+            Sign up
+          </Button>
         </form>
         <Typography>
           Already have an account? <Link href="/login">Login</Link>
