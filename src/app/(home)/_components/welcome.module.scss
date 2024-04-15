@@ -15,7 +15,7 @@
   }
 
   .container {
-    @include container;
+    @include container($background-color: $color-light-cream);
 
     display: flex;
     flex-direction: column;

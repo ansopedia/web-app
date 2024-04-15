@@ -42,8 +42,11 @@
   }
 }
 
-@mixin container() {
+@mixin container($background-color: $background-color) {
   width: 90%;
   max-width: 1080px;
   margin: auto;
+  background-color: $background-color;
+  box-shadow: 0 0 0 100vmax $background-color;
+  clip-path: inset(0 -100vmax);
 }
