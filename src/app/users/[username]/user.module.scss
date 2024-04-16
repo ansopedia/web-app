@@ -1,0 +1,43 @@
+@use '../../../styles/index.scss' as *;
+
+.user {
+  @include container($color-gray-50);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $gap-24;
+  padding: $padding-48;
+  min-height: 100vh;
+
+  @include laptop {
+    grid-template-columns: minmax(240px, 360px) 1fr;
+  }
+
+  .sticky-parent {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .sticky-container {
+    position: sticky;
+    top: 0;
+    bottom: 0;
+  }
+
+  &__action {
+    background-color: $color-white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $padding-24;
+    border-radius: $border-radius-12;
+
+    &--button {
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+}

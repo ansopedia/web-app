@@ -1,5 +1,26 @@
 @use '../../../../styles/index.scss' as *;
 
-.profile-section {
-  @include container;
+.profile {
+  background-color: $color-white;
+  padding: $padding-24;
+  height: fit-content;
+  border-radius: $border-radius-8;
+
+  &__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: $gap-24;
+    margin: $margin-32 $margin-0;
+  }
+
+  &__avatar {
+    border-radius: 50%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-8;
+  }
 }

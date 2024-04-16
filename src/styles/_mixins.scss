@@ -50,3 +50,10 @@
   box-shadow: 0 0 0 100vmax $background-color;
   clip-path: inset(0 -100vmax);
 }
+
+@mixin sticky($top: 0) {
+  position: sticky;
+  top: $top;
+
+  // @content;
+}

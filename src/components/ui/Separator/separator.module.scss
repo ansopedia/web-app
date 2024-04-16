@@ -1,0 +1,7 @@
+@use '../../../styles' as *;
+
+.separator {
+  border: none;
+  height: 1px;
+  background-color: $color-gray-50;
+}
