@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import style from './button.module.scss';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'text' | 'contained' | 'outlined';
+  variant?: 'text' | 'contained' | 'outlined' | 'icon';
   className?: string;
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
 const Button: FC<ButtonProps> = ({ children, className, variant = 'contained', ...props }: ButtonProps) => {

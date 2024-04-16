@@ -37,7 +37,7 @@ const Modal: FC<ModalProps> = ({ children, isOpen, onClose }: ModalProps) => {
   };
 
   const Modal = (
-    <div className={style['modal-wrapper']}>
+    <>
       <div className={style['modal-backdrop']} />
       <div className={style.modal}>
         {children}
@@ -51,7 +51,7 @@ const Modal: FC<ModalProps> = ({ children, isOpen, onClose }: ModalProps) => {
           X
         </Button>
       </div>
-    </div>
+    </>
   );
 
   return isOpen ? createPortal(Modal, modalRoot) : null;

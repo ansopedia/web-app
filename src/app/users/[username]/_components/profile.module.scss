@@ -2,16 +2,24 @@
 
 .profile {
   background-color: $color-white;
-  padding: $padding-24;
+  padding: $padding-32 $padding-24;
   height: fit-content;
   border-radius: $border-radius-8;
+  display: grid;
+  gap: $gap-24;
+  position: relative;
 
   &__header {
     width: 100%;
     display: flex;
     align-items: center;
     gap: $gap-24;
-    margin: $margin-32 $margin-0;
+  }
+
+  &__edit {
+    position: absolute;
+    right: 24px;
+    top: 24px;
   }
 
   &__avatar {
@@ -21,6 +29,18 @@
   &__info {
     display: flex;
     flex-direction: column;
+    gap: $gap-8;
+  }
+
+  &__details {
+    display: grid;
+    align-items: center;
+    gap: $gap-16;
+  }
+
+  &__detail {
+    display: flex;
+    align-items: center;
     gap: $gap-8;
   }
 }
