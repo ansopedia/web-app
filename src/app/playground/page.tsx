@@ -2,8 +2,7 @@
 
 import { Memo, useObservable } from '@legendapp/state/react';
 
-import Checkbox from '../../components/ui/Checkbox/Checkbox';
-import Typography from '../../components/ui/Typography/Typography';
+import { Checkbox, Typography } from '../../components/ui';
 
 import style from './playground.module.scss';
 

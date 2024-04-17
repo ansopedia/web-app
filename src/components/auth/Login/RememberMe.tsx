@@ -1,7 +1,7 @@
 'use client';
 
 import { useObservable } from '@legendapp/state/react';
-import Checkbox from '../../ui/Checkbox/Checkbox';
+import { Checkbox } from '../../ui';
 
 const RememberMe = () => {
   const state$ = useObservable({ checked: false });

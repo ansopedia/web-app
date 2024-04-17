@@ -8,7 +8,7 @@ interface InputProps extends React.ComponentPropsWithRef<'input'> {
   state$: Observable<{ checked: boolean }>;
 }
 
-const Checkbox: FC<InputProps> = ({ label, state$, ...props }: InputProps) => {
+const Checkbox: FC<InputProps> = ({ label, state$, ...props }) => {
   const id = `${useId()}-${label}`;
 
   return (

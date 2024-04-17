@@ -1,12 +1,17 @@
 @use '../../../styles/index.scss' as *;
 
-.progress {
+.progress-wrapper {
   display: flex;
   gap: $gap-8;
   flex-direction: column;
+  width: 100%;
 
   span {
     display: block;
     font-size: $font-size-14;
+  }
+
+  .progress {
+    width: 100%;
   }
 }

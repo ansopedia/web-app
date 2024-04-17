@@ -4,9 +4,8 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
-import Typography from '../../../components/ui/Typography/Typography';
+import { Typography, Button } from '../../../components/ui';
 import Link from 'next/link';
-import Button from '../../../components/ui/Button/Button';
 
 import logo from '../../../assets/Ansopedia_logo.svg';
 import style from './navbar.module.scss';

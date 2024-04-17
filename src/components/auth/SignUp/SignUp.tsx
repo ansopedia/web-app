@@ -4,9 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import Typography from '../../ui/Typography/Typography';
-import Input from '../../ui/Input/Input';
-import Button from '../../ui/Button/Button';
+import { Typography, Input, Button } from '../../ui';
 
 import userIcon from '../../../assets/icons/user-octagon.svg';
 import emailIcon from '../../../assets/icons/sms.svg';

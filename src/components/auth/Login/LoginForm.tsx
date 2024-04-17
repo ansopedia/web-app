@@ -6,11 +6,9 @@ enableReactComponents();
 
 import { useRouter } from 'next/navigation';
 
-import Input from '../../ui/Input/Input';
+import { Input, Button, Form } from '../../ui';
 import RememberMe from './RememberMe';
 import Link from 'next/link';
-import Button from '../../ui/Button/Button';
-import Form from '../../ui/Form/Form';
 
 import { loginSchema } from '../../../utils/validation';
 import { handleLogin } from '../actions';

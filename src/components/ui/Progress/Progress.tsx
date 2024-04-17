@@ -6,9 +6,9 @@ interface IProgressProps extends React.ProgressHTMLAttributes<HTMLProgressElemen
 
 const Progress: FC<IProgressProps> = ({ ...props }) => {
   return (
-    <div className={style.progress}>
+    <div className={style['progress-wrapper']}>
       <Typography variant="span">{props.value}% completed</Typography>
-      <progress {...props}></progress>
+      <progress {...props} className={style.progress}></progress>
     </div>
   );
 };

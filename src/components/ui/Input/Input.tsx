@@ -13,7 +13,7 @@ interface InputProps extends React.ComponentPropsWithRef<'input'> {
   $error: Observable<string>;
 }
 
-const Input: FC<InputProps> = ({ className, icon, $value, $error, ...props }: InputProps) => {
+const Input: FC<InputProps> = ({ className, icon, $value, $error, ...props }) => {
   const styleName = `${style.input} ${className || ''}`;
 
   return (

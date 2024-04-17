@@ -1,7 +1,4 @@
-import Hero from './_components/Hero';
-import Welcome from './_components/Welcome';
-import NavBar from './_components/NavBar';
-import GlobalEducation from './_components/GlobalEducation';
+import { Hero, GlobalEducation, NavBar, Welcome } from './_components';
 
 const Home = () => {
   return (

@@ -1,9 +1,11 @@
-interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
+import { FC } from 'react';
+
+interface IFormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   children: React.ReactNode;
   className?: string;
 }
 
-const Form = ({ children, className, ...props }: FormProps) => {
+const Form: FC<IFormProps> = ({ children, className, ...props }) => {
   return (
     <form className={className} {...props}>
       {children}

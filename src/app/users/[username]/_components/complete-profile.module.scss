@@ -1,0 +1,13 @@
+@use '../../../../styles/index.scss' as *;
+
+.complete-profile {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  place-items: center;
+  gap: $gap-24;
+  width: 100%;
+
+  .link {
+    display: inline-block;
+  }
+}

@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import Login from '../../../../components/auth/Login/Login';
-import Modal from '../../../../components/ui/Modal/Modal';
+import { Modal } from '../../../../components/ui';
 
 const LoginPage = () => {
   const router = useRouter();

@@ -27,13 +27,7 @@ interface TypographyProps {
   align?: 'left' | 'center' | 'right';
 }
 
-const Typography: FC<TypographyProps> = ({
-  variant = 'p',
-  color = 'default',
-  className,
-  children,
-  align = 'left',
-}: TypographyProps) => {
+const Typography: FC<TypographyProps> = ({ variant = 'p', color = 'default', className, children, align = 'left' }) => {
   const colorClass = colorMap[color];
   const variantClass = variantMap[variant];
   const styleName = `${style[variantClass]} ${style[colorClass]} ${style[align]} ${className}`;
