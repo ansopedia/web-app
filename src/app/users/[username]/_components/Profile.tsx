@@ -12,12 +12,11 @@ import Card from '../../../../components/ui/Card/Card';
 
 interface IProfileProps {
   username: string;
-  className?: string;
 }
 
-const Profile = ({ username, className }: IProfileProps) => {
+const Profile = ({ username }: IProfileProps) => {
   return (
-    <Card className={`${style['profile']} ${className}`}>
+    <Card className={style['profile']}>
       <div className={style['profile__edit']}>
         <EditProfileButton />
       </div>

@@ -7,7 +7,7 @@ export const middleware = async (request: NextRequest) => {
   const hasTokens = refreshToken && accessToken;
   const path = new URL(request.url).pathname;
 
-  const protectedRoutes = ['/dashboard', '/profile', '/settings', '/logout'];
+  const protectedRoutes = ['/dashboard', '/profile', '/logout'];
   const authRoutes = ['/login', '/sign-up'];
 
   // Use some() to check if any protected route starts with the current path
