@@ -14,11 +14,11 @@ const Username = ({ params }: { params: IParams }) => {
       <header className={style['header']}>
         <h1>Hello</h1>
       </header>
-      <aside className={style['user__profile']}>
+      <aside className={style['aside']}>
         <Profile username={params.username} className={style['sticky-container']} />
         <CompleteProfile />
       </aside>
-      <div className={style['user__action']}>user action</div>
+      <main className={style['main']}>user action</main>
     </section>
   );
 };

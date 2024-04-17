@@ -4,23 +4,23 @@
   @include container(#f0f3f5, $max-width: 1440px);
 
   display: grid;
-  grid-template-columns: 1fr;
-  gap: $gap-24;
-  padding: $padding-48 $padding-0;
-  min-height: 100vh;
+  gap: $gap-32;
+  height: 100%;
+  grid-template: 'header' 'aside' 'main';
 
   @include laptop {
-    grid-template-columns: minmax(240px, 360px) 1fr;
-    grid-template-areas: 'header header' 'aside main' 'footer footer';
+    grid-template:
+      [header-left] 'header header' auto [header-right]
+      [main-left] 'aside  main' 1fr [main-right] / 400px;
   }
 
   .header {
     grid-area: header;
-    background-color: red;
-    height: fit-content;
+    background-color: $color-white;
+    padding: $padding-12;
   }
 
-  &__profile {
+  .aside {
     display: grid;
     gap: $gap-24;
     height: fit-content;
@@ -33,32 +33,14 @@
     }
   }
 
-  .sticky-parent {
-    position: relative;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .sticky-container {
-    position: sticky;
-    top: 0;
-    bottom: 0;
-  }
-
-  &__action {
-    height: 100%;
+  .main {
+    grid-area: main;
     background-color: $color-white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: $padding-24;
+    height: fit-content;
     border-radius: $border-radius-12;
-
-    &--button {
-      @include mobile {
-        display: none;
-      }
-    }
   }
 }
