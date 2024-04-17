@@ -1,7 +1,7 @@
 @use '../../../styles/index.scss' as *;
 
 .user {
-  @include container(#f0f3f5);
+  @include container(#f0f3f5, $max-width: 1440px);
 
   display: grid;
   grid-template-columns: 1fr;
@@ -11,6 +11,26 @@
 
   @include laptop {
     grid-template-columns: minmax(240px, 360px) 1fr;
+    grid-template-areas: 'header header' 'aside main' 'footer footer';
+  }
+
+  .header {
+    grid-area: header;
+    background-color: red;
+    height: fit-content;
+  }
+
+  &__profile {
+    display: grid;
+    gap: $gap-24;
+    height: fit-content;
+    position: sticky;
+    top: 0;
+    width: 100%;
+
+    @include laptop {
+      grid-template-columns: 1fr;
+    }
   }
 
   .sticky-parent {

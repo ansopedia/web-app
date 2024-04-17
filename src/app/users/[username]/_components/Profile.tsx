@@ -8,6 +8,7 @@ import EditProfileButton from './EditProfileButton';
 import GenderIcon from '../../../../icons/GenderIcon';
 import UniversityIcon from '../../../../icons/UniversityIcon';
 import LocationPin from '../../../../icons/LocationPin';
+import Card from '../../../../components/ui/Card/Card';
 
 interface IProfileProps {
   username: string;
@@ -16,7 +17,7 @@ interface IProfileProps {
 
 const Profile = ({ username, className }: IProfileProps) => {
   return (
-    <div className={`${style['profile']} ${className}`}>
+    <Card className={`${style['profile']} ${className}`}>
       <div className={style['profile__edit']}>
         <EditProfileButton />
       </div>
@@ -30,10 +31,6 @@ const Profile = ({ username, className }: IProfileProps) => {
       <Separator />
       <div className={style['profile__details']}>
         <div className={style['profile__detail']}>
-          <UniversityIcon />
-          <Typography variant="span">RK University Rajkot, Gujarat</Typography>
-        </div>
-        <div className={style['profile__detail']}>
           <GenderIcon />
           <Typography variant="span">Male</Typography>
         </div>
@@ -41,8 +38,12 @@ const Profile = ({ username, className }: IProfileProps) => {
           <LocationPin />
           <Typography variant="span">Ahmedabad</Typography>
         </div>
+        <div className={style['profile__detail']}>
+          <UniversityIcon />
+          <Typography variant="span">RK University Rajkot, Gujarat</Typography>
+        </div>
       </div>
-    </div>
+    </Card>
   );
 };
 

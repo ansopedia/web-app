@@ -1,0 +1,12 @@
+@use '../../../styles/index.scss' as *;
+
+.progress {
+  display: flex;
+  gap: $gap-8;
+  flex-direction: column;
+
+  span {
+    display: block;
+    font-size: $font-size-14;
+  }
+}

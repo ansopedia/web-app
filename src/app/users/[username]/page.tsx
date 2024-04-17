@@ -2,6 +2,7 @@ import React from 'react';
 import Profile from './_components/Profile';
 
 import style from './user.module.scss';
+import CompleteProfile from './_components/CompleteProfile';
 
 interface IParams {
   username: string;
@@ -10,9 +11,13 @@ interface IParams {
 const Username = ({ params }: { params: IParams }) => {
   return (
     <section className={style['user']}>
-      <div className={style['sticky-parent']}>
+      <header className={style['header']}>
+        <h1>Hello</h1>
+      </header>
+      <aside className={style['user__profile']}>
         <Profile username={params.username} className={style['sticky-container']} />
-      </div>
+        <CompleteProfile />
+      </aside>
       <div className={style['user__action']}>user action</div>
     </section>
   );

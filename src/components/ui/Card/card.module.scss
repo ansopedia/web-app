@@ -1,0 +1,7 @@
+@use '../../../styles/index.scss' as *;
+
+.card {
+  background-color: $color-white;
+  padding: $padding-32 $padding-24;
+  border-radius: $border-radius-8;
+}

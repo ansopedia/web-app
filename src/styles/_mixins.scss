@@ -42,9 +42,9 @@
   }
 }
 
-@mixin container($background-color: $background-color) {
+@mixin container($background-color: $background-color, $max-width: 1080px) {
   width: 90%;
-  max-width: 1080px;
+  max-width: $max-width;
   margin: auto;
   background-color: $background-color;
   box-shadow: 0 0 0 100vmax $background-color;

@@ -1,10 +1,7 @@
 @use '../../../../styles/index.scss' as *;
 
 .profile {
-  background-color: $color-white;
-  padding: $padding-32 $padding-24;
   height: fit-content;
-  border-radius: $border-radius-8;
   display: grid;
   gap: $gap-24;
   position: relative;
