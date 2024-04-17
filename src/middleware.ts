@@ -10,14 +10,15 @@ export const middleware = async (request: NextRequest) => {
   const protectedRoutes = ['/dashboard', '/profile', '/settings', '/logout'];
   const authRoutes = ['/login', '/sign-up'];
 
-  const isProtectedRoute = protectedRoutes.includes(path);
+  // Use some() to check if any protected route starts with the current path
+  const isProtectedRoute = protectedRoutes.some((route) => path.startsWith(route));
   const isAuthRoute = authRoutes.includes(path);
 
   if (isProtectedRoute && !hasTokens) {
-    // If the user is trying to access a protected route and they're not logged in, redirect them to the login page
+    // Redirect to login if protected and no tokens
     return NextResponse.redirect(new URL('/login', request.url));
   } else if (isAuthRoute && hasTokens) {
-    // If the user is trying to access the login page and they're already logged in, redirect them to the dashboard
+    // Redirect to dashboard if auth route and has tokens
     return NextResponse.redirect(new URL('/', request.url));
   }
 

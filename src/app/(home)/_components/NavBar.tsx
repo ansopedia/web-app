@@ -11,7 +11,7 @@ import logo from '../../../assets/Ansopedia_logo.svg';
 import style from './navbar.module.scss';
 import { useRouter } from 'next/navigation';
 
-const navItems = [
+const navItems: { href: string; label: string }[] = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
