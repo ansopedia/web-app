@@ -5,10 +5,10 @@
 
   display: grid;
   gap: $gap-32;
-  height: 100vh;
   grid-template: 'header' 'aside' 'main';
 
   @include laptop {
+    height: 100vh;
     grid-template:
       [header-left] 'header header' auto [header-right]
       [main-left] 'aside  main' 1fr [main-right] / max-content;
