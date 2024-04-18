@@ -7,14 +7,16 @@ import LeftArrowIcon from '../../icons/LeftArrow';
 import Separator from '../../components/ui/Separator/Separator';
 import SettingIcon from '../../icons/SettingIcon';
 import IconWithText from '../../components/ui/IconWithText/IconWithText';
+import Typography from '../../components/ui/Typography/Typography';
+import UserIcon from '../../icons/UserIcon';
 
 interface ISettingLayoutProps {
   children: React.ReactNode;
 }
 
-const links: { href: string; label: string; icon: React.ReactNode }[] = [
+const links: { href: string; label: string; icon: React.ReactElement }[] = [
+  { href: '/settings/profile', label: 'Profile', icon: <UserIcon /> },
   { href: '/settings', label: 'Settings', icon: <SettingIcon /> },
-  { href: '/settings/profile', label: 'Profile', icon: <SettingIcon /> },
 ];
 
 const SettingLayout: FC<ISettingLayoutProps> = ({ children }) => {
@@ -25,14 +27,14 @@ const SettingLayout: FC<ISettingLayoutProps> = ({ children }) => {
       </Header>
       <Aside>
         <Card className={style['setting-aside']}>
-          <Link href="/settings" className={style['go-back']}>
-            <LeftArrowIcon /> go back
+          <Link href="/users/sanjay" className={style['go-back']}>
+            <LeftArrowIcon /> <Typography variant="span">Go back to profile</Typography>
           </Link>
           <Separator />
           <div className={style.links}>
-            {links.map((link, index) => (
-              <Link href={link.href} key={index}>
-                <IconWithText IconComponent={SettingIcon} text={link.label} />
+            {links.map(({ href, label, icon }, index) => (
+              <Link href={href} key={index}>
+                <IconWithText IconComponent={icon} text={label} />
               </Link>
             ))}
           </div>

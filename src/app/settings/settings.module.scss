@@ -3,12 +3,14 @@
 .setting-aside {
   display: grid;
   gap: $gap-24;
+  width: 320px;
 
   .go-back {
     display: inline-flex;
     align-items: center;
     gap: $gap-8;
     cursor: pointer;
+    color: $color-dark;
   }
 
   .links {

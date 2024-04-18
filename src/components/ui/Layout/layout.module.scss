@@ -11,7 +11,7 @@
   @include laptop {
     grid-template:
       [header-left] 'header header' auto [header-right]
-      [main-left] 'aside  main' 1fr [main-right] / 400px;
+      [main-left] 'aside  main' 1fr [main-right] / max-content;
   }
 
   .header {

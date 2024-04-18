@@ -3,14 +3,14 @@ import Typography, { VariantMap } from '../Typography/Typography';
 import style from './icon-with-text.module.scss';
 
 interface IconWithTextProps {
-  IconComponent: React.FC;
+  IconComponent: React.ReactNode;
   text: string;
   variant?: keyof typeof VariantMap;
 }
 
 const IconWithText: React.FC<IconWithTextProps> = ({ IconComponent, text, variant = 'span' }) => (
   <div className={style['icon-with-text']}>
-    <IconComponent />
+    {IconComponent}
     <Typography variant={variant}>{text}</Typography>
   </div>
 );

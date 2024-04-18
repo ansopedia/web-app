@@ -30,9 +30,9 @@ const Profile = ({ username }: IProfileProps) => {
       </div>
       <Separator />
       <div className={style['profile__details']}>
-        <IconWithText IconComponent={GenderIcon} text="Male" />
-        <IconWithText IconComponent={LocationPin} text="Nepal" />
-        <IconWithText IconComponent={UniversityIcon} text="RK University Rajkot, Gujarat" />
+        <IconWithText IconComponent={<GenderIcon />} text="Male" />
+        <IconWithText IconComponent={<LocationPin />} text="Nepal" />
+        <IconWithText IconComponent={<UniversityIcon />} text="RK University Rajkot, Gujarat" />
       </div>
     </Card>
   );
