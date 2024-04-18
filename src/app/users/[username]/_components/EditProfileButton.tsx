@@ -1,9 +1,8 @@
 'use client';
 
 import EditIcon from '../../../../icons/EditIcon';
-import Button from '../../../../components/ui/Button/Button';
-import { useModal } from '../../../../components/ui/Modal/useModal';
-import Modal from '../../../../components/ui/Modal/Modal';
+import { Button, Modal } from '../../../../components/ui';
+import { useModal } from '../../../../hooks/useModal';
 
 const EditProfileButton = () => {
   const { closeModal, isOpen, openModal } = useModal();

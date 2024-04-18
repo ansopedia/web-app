@@ -1,0 +1,6 @@
+@use '../../../styles' as *;
+
+.user-aside {
+  display: grid;
+  gap: $gap-24;
+}

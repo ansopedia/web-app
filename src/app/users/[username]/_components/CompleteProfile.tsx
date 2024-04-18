@@ -9,7 +9,7 @@ const CompleteProfile = () => {
     <Card className={style['complete-profile']}>
       <Progress max={80} value={20} />
       <Link href="/settings/profile" className={style.link}>
-        Complete your profile
+        Complete profile
       </Link>
     </Card>
   );

@@ -1,11 +1,5 @@
 @use '../../../styles' as *;
 
-@mixin child {
-  background-color: $color-white;
-  padding: $padding-24;
-  border-radius: $border-radius-12;
-}
-
 .layout {
   @include container(#f0f3f5, $max-width: 1440px);
 
@@ -21,20 +15,15 @@
   }
 
   .header {
-    @include child;
-
     grid-area: header;
   }
 
   .aside {
-    @include child;
-
     grid-area: aside;
+    height: fit-content;
   }
 
   .main {
-    @include child;
-
     grid-area: main;
   }
 }
