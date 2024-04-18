@@ -8,7 +8,7 @@ const colorMap = {
   error: 'error',
 };
 
-const variantMap = {
+export const VariantMap = {
   h1: 'heading1',
   h2: 'heading2',
   h3: 'heading3',
@@ -20,7 +20,7 @@ const variantMap = {
 };
 
 interface TypographyProps {
-  variant?: keyof typeof variantMap;
+  variant?: keyof typeof VariantMap;
   color?: keyof typeof colorMap;
   children: React.ReactNode;
   className?: string;
@@ -29,7 +29,7 @@ interface TypographyProps {
 
 const Typography: FC<TypographyProps> = ({ variant = 'p', color = 'default', className, children, align = 'left' }) => {
   const colorClass = colorMap[color];
-  const variantClass = variantMap[variant];
+  const variantClass = VariantMap[variant];
   const styleName = `${style[variantClass]} ${style[colorClass]} ${style[align]} ${className}`;
   const Component = variant;
 

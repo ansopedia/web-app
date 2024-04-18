@@ -1,0 +1,7 @@
+@use '../../../styles' as *;
+
+.icon-with-text {
+  display: flex;
+  align-items: center;
+  gap: $gap-8;
+}

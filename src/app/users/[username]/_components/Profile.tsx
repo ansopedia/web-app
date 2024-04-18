@@ -9,6 +9,7 @@ import GenderIcon from '../../../../icons/GenderIcon';
 import UniversityIcon from '../../../../icons/UniversityIcon';
 import LocationPin from '../../../../icons/LocationPin';
 import Card from '../../../../components/ui/Card/Card';
+import IconWithText from '../../../../components/ui/IconWithText/IconWithText';
 
 interface IProfileProps {
   username: string;
@@ -29,18 +30,9 @@ const Profile = ({ username }: IProfileProps) => {
       </div>
       <Separator />
       <div className={style['profile__details']}>
-        <div className={style['profile__detail']}>
-          <GenderIcon />
-          <Typography variant="span">Male</Typography>
-        </div>
-        <div className={style['profile__detail']}>
-          <LocationPin />
-          <Typography variant="span">Ahmedabad</Typography>
-        </div>
-        <div className={style['profile__detail']}>
-          <UniversityIcon />
-          <Typography variant="span">RK University Rajkot, Gujarat</Typography>
-        </div>
+        <IconWithText IconComponent={GenderIcon} text="Male" />
+        <IconWithText IconComponent={LocationPin} text="Nepal" />
+        <IconWithText IconComponent={UniversityIcon} text="RK University Rajkot, Gujarat" />
       </div>
     </Card>
   );

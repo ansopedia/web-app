@@ -1,1 +1,18 @@
 @use '../../styles/index.scss' as *;
+
+.setting-aside {
+  display: grid;
+  gap: $gap-24;
+
+  .go-back {
+    display: inline-flex;
+    align-items: center;
+    gap: $gap-8;
+    cursor: pointer;
+  }
+
+  .links {
+    display: grid;
+    gap: $gap-16;
+  }
+}
