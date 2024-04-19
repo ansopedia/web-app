@@ -6,12 +6,12 @@ enableReactComponents();
 
 import { useObservable, useObserve } from '@legendapp/state/react';
 
-import { Button, Form, Typography, InputGroup } from '../../ui';
+import { Button, Form, Typography, InputGroup } from '../../../components/ui';
 
 import userIcon from '../../../assets/icons/user-octagon.svg';
 import { editPublicProfileSchema } from '../../../types/user';
 
-import style from '../auth.module.scss';
+import style from './form.module.scss';
 import { toast } from 'sonner';
 
 const ProfileUpdateForm = () => {
@@ -118,7 +118,7 @@ const ProfileUpdateForm = () => {
   };
 
   return (
-    <Form className={style['profile-update-form']}>
+    <Form className={style['form']}>
       <InputGroup
         placeholder="Full Name"
         $value={profileState$.fullName}

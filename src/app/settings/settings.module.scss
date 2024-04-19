@@ -3,7 +3,10 @@
 .setting-aside {
   display: grid;
   gap: $gap-24;
-  width: 320px;
+
+  @include laptop {
+    width: 320px;
+  }
 
   .go-back {
     display: inline-flex;

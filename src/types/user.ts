@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const userName = z
+const userNameSchema = z
   .string()
   .min(3, 'username must be at least 3 characters')
   .max(18, 'username must be at most 18 characters')
@@ -10,7 +10,7 @@ const userName = z
 
 const userSchema = z.object({
   id: z.string().uuid(),
-  username: userName,
+  username: userNameSchema,
   email: z.string().email().trim().toLowerCase(),
   password: z.string().min(8, 'password must be at least 8 characters'),
   isDeleted: z.boolean().default(false),
@@ -34,6 +34,12 @@ export const createUserSchema = userSchema
     path: ['confirmPassword'],
   });
 
+export const userAuthSchema = z.object({
+  email: z.string().email().trim().toLowerCase(),
+  password: z.string().min(8, 'password must be at least 8 characters'),
+  username: userNameSchema,
+});
+
 export const addressSchema = z.object({
   countryName: z.string(),
   countryCode: z.string(),
@@ -45,7 +51,7 @@ export const addressSchema = z.object({
 
 export const publicProfileSchema = z.object({
   fullName: z.string(),
-  userName: userName,
+  userName: userNameSchema,
   phoneNumber: z.string(),
   bio: z.string().max(200),
   pronouns: z.string(),

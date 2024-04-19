@@ -1,0 +1,7 @@
+@use '../../../styles' as *;
+
+.form {
+  display: grid;
+  gap: $gap-24;
+  margin: $margin-24 $margin-0;
+}

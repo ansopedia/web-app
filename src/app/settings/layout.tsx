@@ -16,7 +16,7 @@ interface ISettingLayoutProps {
 
 const links: { href: string; label: string; icon: React.ReactElement }[] = [
   { href: '/settings/profile', label: 'Public Profile', icon: <UserIcon /> },
-  { href: '/settings', label: 'Account', icon: <SettingIcon /> },
+  { href: '/settings/account', label: 'Account', icon: <SettingIcon /> },
 ];
 
 const SettingLayout: FC<ISettingLayoutProps> = ({ children }) => {
