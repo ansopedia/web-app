@@ -8,6 +8,7 @@ import { Typography, Button } from '../../../components/ui';
 import Link from 'next/link';
 
 import logo from '../../../assets/Ansopedia_logo.svg';
+import hamburger from '../../../assets/icons/hamburger.svg';
 import style from './navbar.module.scss';
 import { useRouter } from 'next/navigation';
 
@@ -50,7 +51,9 @@ const NavBar = () => {
           <Button onClick={() => router.push('login')}>Sign in</Button>
         </div>
         <div className={style['menu-cta']}>
-          <Button onClick={toggleMobileMenu}>X</Button>
+          <Button onClick={toggleMobileMenu} variant="icon">
+            <Image src={hamburger} alt="menu" width={24} height={24} />
+          </Button>
         </div>
       </nav>
     </div>
