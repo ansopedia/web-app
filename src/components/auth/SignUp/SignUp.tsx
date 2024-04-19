@@ -18,6 +18,7 @@ import { createUserSchema } from '../../../utils/validation';
 import { useObservable, useObserve } from '@legendapp/state/react';
 import { IApiResponse } from '../../../utils/auth.util';
 import { handleSignUp } from '../actions';
+import { toast } from 'sonner';
 
 const SignUp = () => {
   const router = useRouter();
@@ -79,14 +80,14 @@ const SignUp = () => {
       const res: IApiResponse = await handleSignUp({ email, password, confirmPassword, username });
 
       if (res.status === 'failed') {
-        alert(res.message);
+        toast.error(res.message);
         return;
       }
 
-      alert(`User created successful! ${res.message}`);
+      toast.success(`User created successful! ${res.message}`);
       router.replace('/login');
     } catch (error) {
-      alert('Something went wrong! Please try again.');
+      toast.error('Something went wrong! Please try again.');
     }
   };
 

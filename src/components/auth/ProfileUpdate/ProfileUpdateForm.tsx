@@ -12,6 +12,7 @@ import userIcon from '../../../assets/icons/user-octagon.svg';
 import { editPublicProfileSchema } from '../../../types/user';
 
 import style from '../auth.module.scss';
+import { toast } from 'sonner';
 
 const ProfileUpdateForm = () => {
   const profileState$ = useObservable({
@@ -88,7 +89,7 @@ const ProfileUpdateForm = () => {
     try {
       throw new Error('Not implemented');
     } catch (error) {
-      alert('Something went wrong! Please try again.');
+      toast.error('Something went wrong! Please try again.');
     }
   };
 

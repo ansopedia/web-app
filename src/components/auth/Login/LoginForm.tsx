@@ -1,6 +1,7 @@
 'use client';
 
 import { enableReactComponents } from '@legendapp/state/config/enableReactComponents';
+import { toast } from 'sonner';
 
 enableReactComponents();
 
@@ -58,13 +59,13 @@ const LoginForm = () => {
       const res: IApiResponse = await handleLogin({ email, password });
 
       if (res.status === 'failed') {
-        alert(res.message);
+        toast.error(res.message);
         return;
       }
 
       router.back();
     } catch (error) {
-      alert('Something went wrong! Please try again.');
+      toast.error('Something went wrong! Please try again.');
     }
   };
 
