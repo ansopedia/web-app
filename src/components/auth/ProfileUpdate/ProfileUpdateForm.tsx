@@ -6,11 +6,10 @@ enableReactComponents();
 
 import { useObservable, useObserve } from '@legendapp/state/react';
 
-import { Input, Button, Form } from '../../ui';
+import { Button, Form, Typography, InputGroup } from '../../ui';
 
-import emailIcon from '../../../assets/icons/sms.svg';
 import userIcon from '../../../assets/icons/user-octagon.svg';
-import { profileSchema } from '../../../types/user';
+import { editPublicProfileSchema } from '../../../types/user';
 
 import style from '../auth.module.scss';
 
@@ -18,32 +17,46 @@ const ProfileUpdateForm = () => {
   const profileState$ = useObservable({
     fullName: '',
     fullNameError: '',
-    email: '',
-    emailError: '',
     phoneNumber: '',
     phoneNumberError: '',
+    bio: '',
+    bioError: '',
     dob: '',
     dobError: '',
+    pronouns: '',
+    pronounsError: '',
+    url: '',
+    urlError: '',
+    socialAccounts: [],
+    socialAccountsError: '',
     didSave: false,
   });
 
   useObserve(() => {
     if (profileState$.didSave.get()) {
-      const { email, fullName, phoneNumber, dob } = profileState$.get();
+      const { fullName, phoneNumber, bio, pronouns, url, socialAccounts, dob } = profileState$.get();
 
-      const validData = profileSchema.safeParse({
-        email,
+      const validData = editPublicProfileSchema.safeParse({
         fullName,
         phoneNumber,
-        dob: new Date(dob),
+        bio,
+        dob,
+        pronouns,
+        url,
+        socialAccounts,
       });
 
-      profileState$.emailError.set(!validData.success ? validData.error.formErrors.fieldErrors.email?.[0] : '');
+      profileState$.fullNameError.set(!validData.success ? validData.error.formErrors.fieldErrors.fullName?.[0] : '');
+      profileState$.bioError.set(!validData.success ? validData.error.formErrors.fieldErrors.bio?.[0] : '');
+      profileState$.dobError.set(!validData.success ? validData.error.formErrors.fieldErrors.dob?.[0] : '');
+      profileState$.pronounsError.set(!validData.success ? validData.error.formErrors.fieldErrors.pronouns?.[0] : '');
+      profileState$.urlError.set(!validData.success ? validData.error.formErrors.fieldErrors.url?.[0] : '');
       profileState$.phoneNumberError.set(
         !validData.success ? validData.error.formErrors.fieldErrors.phoneNumber?.[0] : '',
       );
-      profileState$.dobError.set(!validData.success ? validData.error.formErrors.fieldErrors.dob?.[0] : '');
-      profileState$.fullNameError.set(!validData.success ? validData.error.formErrors.fieldErrors.fullName?.[0] : '');
+      profileState$.socialAccountsError.set(
+        !validData.success ? validData.error.formErrors.fieldErrors.socialAccounts?.[0] : '',
+      );
     }
   });
 
@@ -54,15 +67,23 @@ const ProfileUpdateForm = () => {
     const {
       // fullName,
       fullNameError,
-      // email,
-      emailError,
+      // bio,
+      bioError,
+      dob,
+      // dobError,
+      // pronouns,
+      pronounsError,
+      // url,
+      urlError,
+      // socialAccounts,
+      socialAccountsError,
       // phoneNumber,
       phoneNumberError,
-      dob,
-      // dobError
     } = profileState$.get();
 
-    if (fullNameError || emailError || phoneNumberError || dob) return;
+    if (fullNameError || bioError || phoneNumberError || dob || pronounsError || urlError || socialAccountsError) {
+      return;
+    }
 
     try {
       throw new Error('Not implemented');
@@ -73,27 +94,59 @@ const ProfileUpdateForm = () => {
 
   return (
     <Form className={style['profile-update-form']}>
-      <Input
+      <InputGroup
         placeholder="Full Name"
         $value={profileState$.fullName}
         $error={profileState$.fullNameError}
         icon={userIcon}
+        type="text"
+        label="Full Name"
       />
-      <Input
-        $error={profileState$.emailError}
-        $value={profileState$.email}
-        autoComplete="email"
-        placeholder="example@gmail.com"
-        type="email"
-        icon={emailIcon}
+      <InputGroup
+        $error={profileState$.bio}
+        $value={profileState$.bioError}
+        autoComplete="bio"
+        placeholder="Help the world know you better"
+        type="textarea"
+        label="Bio"
       />
-      <Input
+      <InputGroup
         placeholder="Phone Number"
         $value={profileState$.phoneNumber}
         $error={profileState$.phoneNumberError}
         type="tel"
+        label="Phone Number"
       />
-      <Input placeholder="Date of Birth" $value={profileState$.dob} $error={profileState$.dobError} type="date" />
+      <InputGroup
+        placeholder="Pronouns"
+        label="Pronoun"
+        $value={profileState$.pronouns}
+        $error={profileState$.pronounsError}
+        type="text"
+      />
+      <InputGroup
+        placeholder="Website"
+        label="URL"
+        $value={profileState$.url}
+        $error={profileState$.urlError}
+        type="url"
+      />
+      <Typography variant="h4">Social Accounts</Typography>
+      <InputGroup
+        placeholder="Facebook"
+        $value={profileState$.socialAccounts[0]}
+        $error={profileState$.socialAccountsError}
+        type="text"
+        label="Facebook"
+      />
+      <InputGroup
+        placeholder="Github"
+        $value={profileState$.socialAccounts[1]}
+        $error={profileState$.socialAccountsError}
+        type="text"
+        label="Github"
+      />
+      <InputGroup label="Date of Birth" $value={profileState$.dob} $error={profileState$.dobError} type="date" />
       <Button type="submit" onClick={handleFormSubmit}>
         Log in
       </Button>

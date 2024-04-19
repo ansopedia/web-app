@@ -8,7 +8,8 @@
   grid-template: 'header' 'aside' 'main';
 
   @include laptop {
-    height: 100vh;
+    min-height: 100vh;
+    padding-bottom: $padding-32;
     grid-template:
       [header-left] 'header header' auto [header-right]
       [main-left] 'aside  main' 1fr [main-right] / max-content;

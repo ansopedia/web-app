@@ -7,3 +7,4 @@ export { default as Checkbox } from './Checkbox/Checkbox';
 export { default as Form } from './Form/Form';
 export { default as Separator } from './Separator/Separator';
 export { default as Modal } from './Modal/Modal';
+export { default as InputGroup } from './InputGroup/InputGroup';

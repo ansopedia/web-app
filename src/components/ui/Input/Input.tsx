@@ -5,10 +5,9 @@ import { Memo, Reactive, Show } from '@legendapp/state/react';
 import { Observable } from '@legendapp/state';
 import Typography from '../Typography/Typography';
 
-interface InputProps extends React.ComponentPropsWithRef<'input'> {
+export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   className?: string;
   icon?: string;
-  placeholder: string;
   $value: Observable<string>;
   $error: Observable<string>;
 }

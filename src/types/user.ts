@@ -1,14 +1,16 @@
 import { z } from 'zod';
 
+const userName = z
+  .string()
+  .min(3, 'username must be at least 3 characters')
+  .max(18, 'username must be at most 18 characters')
+  .regex(/^[a-z]/i, 'username must start with a letter')
+  .regex(/^[a-z0-9]*$/i, 'username can only contain alphanumeric characters')
+  .transform((val) => val.toLowerCase().trim());
+
 const userSchema = z.object({
   id: z.string().uuid(),
-  username: z
-    .string()
-    .min(3, 'username must be at least 3 characters')
-    .max(18, 'username must be at most 18 characters')
-    .regex(/^[a-z]/i, 'username must start with a letter')
-    .regex(/^[a-z0-9]*$/i, 'username can only contain alphanumeric characters')
-    .transform((val) => val.toLowerCase().trim()),
+  username: userName,
   email: z.string().email().trim().toLowerCase(),
   password: z.string().min(8, 'password must be at least 8 characters'),
   isDeleted: z.boolean().default(false),
@@ -41,11 +43,29 @@ export const addressSchema = z.object({
   zipCode: z.string(),
 });
 
-export const profileSchema = userSchema.pick({
-  fullName: true,
-  email: true,
-  phoneNumber: true,
-  dob: true,
+export const publicProfileSchema = z.object({
+  fullName: z.string(),
+  userName: userName,
+  phoneNumber: z.string(),
+  bio: z.string().max(200),
+  pronouns: z.string(),
+  url: z.string().url(),
+  socialAccounts: z.array(
+    z.object({
+      socialName: z.string(),
+      socialUrl: z.string().url(),
+    }),
+  ),
+  address: addressSchema,
+  dob: z.date(),
+  avatar: z.string().url(),
+  banner: z.string().url(),
+  isVerified: z.boolean(),
+});
+
+export const editPublicProfileSchema = publicProfileSchema.omit({
+  userName: true,
+  isVerified: true,
 });
 
 export const educationSchema = z.object({
@@ -105,7 +125,7 @@ export type CreateUser = z.infer<typeof createUserSchema>;
 export type Login = z.infer<typeof loginSchema>;
 export type User = z.infer<typeof userSchema>;
 export type Address = z.infer<typeof addressSchema>;
-export type Profile = z.infer<typeof profileSchema>;
+export type PublicProfileSchema = z.infer<typeof publicProfileSchema>;
 export type Education = z.infer<typeof educationSchema>;
 export type Experience = z.infer<typeof experienceSchema>;
 export type Skill = z.infer<typeof skillSchema>;
