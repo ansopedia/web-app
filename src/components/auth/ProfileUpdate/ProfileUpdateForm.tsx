@@ -28,8 +28,26 @@ const ProfileUpdateForm = () => {
     pronounsError: '',
     url: '',
     urlError: '',
-    socialAccounts: [],
-    socialAccountsError: '',
+    socialAccounts: [
+      {
+        socialName: 'facebook',
+        socialUrl: '',
+      },
+      {
+        socialName: 'github',
+        socialUrl: '',
+      },
+    ],
+    socialAccountsError: [
+      {
+        socialName: 'facebook',
+        socialUrl: '',
+      },
+      {
+        socialName: 'github',
+        socialUrl: '',
+      },
+    ],
     didSave: false,
   });
 
@@ -55,8 +73,14 @@ const ProfileUpdateForm = () => {
       profileState$.phoneNumberError.set(
         !validData.success ? validData.error.formErrors.fieldErrors.phoneNumber?.[0] : '',
       );
-      profileState$.socialAccountsError.set(
+      // profileState$.socialAccountsError.set(
+      //   !validData.success ? validData.error.formErrors.fieldErrors.socialAccounts?.[0] : '',
+      // );
+      profileState$.socialAccountsError[0].socialUrl.set(
         !validData.success ? validData.error.formErrors.fieldErrors.socialAccounts?.[0] : '',
+      );
+      profileState$.socialAccountsError[1].socialUrl.set(
+        !validData.success ? validData.error.formErrors.fieldErrors.socialAccounts?.[1] : '',
       );
     }
   });
@@ -101,6 +125,7 @@ const ProfileUpdateForm = () => {
         $error={profileState$.fullNameError}
         icon={userIcon}
         type="text"
+        onChange={(e) => profileState$.fullName.set(e.target.value)}
         label="Full Name"
       />
       <InputGroup
@@ -109,12 +134,14 @@ const ProfileUpdateForm = () => {
         autoComplete="bio"
         placeholder="Help the world know you better"
         type="textarea"
+        onChange={(e) => profileState$.bio.set(e.target.value)}
         label="Bio"
       />
       <InputGroup
         placeholder="Phone Number"
         $value={profileState$.phoneNumber}
         $error={profileState$.phoneNumberError}
+        onChange={(e) => profileState$.phoneNumber.set(e.target.value)}
         type="tel"
         label="Phone Number"
       />
@@ -123,27 +150,31 @@ const ProfileUpdateForm = () => {
         label="Pronoun"
         $value={profileState$.pronouns}
         $error={profileState$.pronounsError}
+        onChange={(e) => profileState$.pronouns.set(e.target.value)}
         type="text"
       />
       <InputGroup
         placeholder="Website"
         label="URL"
         $value={profileState$.url}
+        onChange={(e) => profileState$.url.set(e.target.value)}
         $error={profileState$.urlError}
         type="url"
       />
       <Typography variant="h4">Social Accounts</Typography>
       <InputGroup
         placeholder="Facebook"
-        $value={profileState$.socialAccounts[0]}
-        $error={profileState$.socialAccountsError}
+        $value={profileState$.socialAccounts[0].socialUrl}
+        $error={profileState$.socialAccountsError[0].socialUrl}
+        onChange={(e) => profileState$.socialAccounts[0].socialUrl.set(e.target.value)}
         type="text"
         label="Facebook"
       />
       <InputGroup
         placeholder="Github"
-        $value={profileState$.socialAccounts[1]}
-        $error={profileState$.socialAccountsError}
+        $value={profileState$.socialAccounts[1].socialUrl}
+        $error={profileState$.socialAccountsError[1].socialUrl}
+        onChange={(e) => profileState$.socialAccounts[1].socialUrl.set(e.target.value)}
         type="text"
         label="Github"
       />
