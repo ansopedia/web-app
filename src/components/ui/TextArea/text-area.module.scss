@@ -1,0 +1,23 @@
+@use '../../../styles' as *;
+
+.textarea-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.textarea {
+  border: 1px solid $color-dark;
+  border-radius: $border-radius-12;
+  padding: $padding-12 $padding-16;
+  width: 100%;
+  display: flex;
+  gap: $gap-8;
+
+  &:focus-within {
+    border-color: $color-primary;
+  }
+
+  outline: none;
+  font-size: $font-size-16;
+}

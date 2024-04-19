@@ -13,6 +13,7 @@ import { editPublicProfileSchema } from '../../../types/user';
 
 import style from './form.module.scss';
 import { toast } from 'sonner';
+import TextArea from '../../../components/ui/TextArea/TextArea';
 
 const ProfileUpdateForm = () => {
   const profileState$ = useObservable({
@@ -73,9 +74,7 @@ const ProfileUpdateForm = () => {
       profileState$.phoneNumberError.set(
         !validData.success ? validData.error.formErrors.fieldErrors.phoneNumber?.[0] : '',
       );
-      // profileState$.socialAccountsError.set(
-      //   !validData.success ? validData.error.formErrors.fieldErrors.socialAccounts?.[0] : '',
-      // );
+
       profileState$.socialAccountsError[0].socialUrl.set(
         !validData.success ? validData.error.formErrors.fieldErrors.socialAccounts?.[0] : '',
       );
@@ -128,14 +127,15 @@ const ProfileUpdateForm = () => {
         onChange={(e) => profileState$.fullName.set(e.target.value)}
         label="Full Name"
       />
-      <InputGroup
-        $error={profileState$.bio}
-        $value={profileState$.bioError}
+      <TextArea
+        $error={profileState$.bioError}
+        $value={profileState$.bio}
         autoComplete="bio"
         placeholder="Help the world know you better"
-        type="textarea"
         onChange={(e) => profileState$.bio.set(e.target.value)}
         label="Bio"
+        maxLength={200}
+        rows={5}
       />
       <InputGroup
         placeholder="Phone Number"
