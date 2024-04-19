@@ -28,6 +28,16 @@ export const createUserSchema = userSchema
     path: ['confirmPassword'],
   });
 
+export const forgotPasswordSchema = userSchema.pick({ email: true });
+
+export const resetPasswordSchema = z.object({
+  password: z.string().min(8, 'password must be at least 8 characters'),
+  confirmPassword: z.string(),
+});
+
+export type ResetPassword = z.infer<typeof resetPasswordSchema>;
+export type ForgotPassword = z.infer<typeof forgotPasswordSchema>;
+
 export type CreateUser = z.infer<typeof createUserSchema>;
 export type Login = z.infer<typeof loginSchema>;
 export type User = z.infer<typeof userSchema>;
